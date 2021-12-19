@@ -1,0 +1,11 @@
+importance of "expression" in context with c/c++ programming.
+--------------------------------------------------------------
+
+1. if
+2. if-else
+3. switch
+4. Ternary Operator
+5. loops -for, while, do-while
+6. Function Call(Argument Pasing)
+7. return statement :- how it can be used to return a value from the function
+8. Array initialization

@@ -1,0 +1,301 @@
+The GS of writting a code/program in c++
+
+#include<iostream>
+using namespace std;
+
+int main( void )
+{
+  --------
+  --------
+  --------
+  return 0;
+}
+
+Let's get hands on with I/O operation in C++
+
+In C for o/p operation "printf"
+In C for i/p operation "scanf"
+
+In C++ for o/p operation "cout"
+In C++ for i/p operation "cin"
+
+Let's understand the way to use it. 
+Let's understand the advantages of using "cout" and "cin" over "printf" and "scanf"
+
+
+The general format of using cout is -
+
+cout << "format-string" ;
+cout << expression ;
+
+The general format of using cin is -
+
+cin >> name-of-the-L-Value;
+
+Benifit of using cout in c++ in comparision with using printf in c
+Here no format specifier is required
+
+Benifit of using cin in c++ in comparision with using scanf in c
+Here no format specifier is required AND 
+Here no need to specifiy the address of the variable/L-Value/Alingment
+
+
+Note :- "cout" and "cin" are not the functions.
+"cout" is an object of class "ostream"
+"cin" is an object of class "istream"
+
+Variables in C++
+-----------------
+
+1. Unlike 'C' here in 'C++' it's not mandatory to define the variable at the start of a block.
+We are free to define it anywhere we wish. But the defination should be there before using it. 
+
+2. We can create/define a variable in the place of "expression-1" i.e. "initialization" in for
+loop. Such a variable is available only until the execution of loop.
+
+for (int i = 1; i <= 10; ++i)
+{
+	cout << "\n" << i;
+}
+cout << "\nAccessing \"i\" outside the loop : " << i;
+
+
+Global Variables 
+------------------
+
+Same Rule :- Priority is given to local variables first and then the global variables w.r.t accessing
+of it.
+
+
+When we define a local variable with the same name like a global one. 
+Then because of this the global variable will go out of the scope. 
+Because priority is given to the local variables.
+Q/A) Is there any chance to access the "hidden-global-variable" ?
+
+Ans : - Yes it is possible with the help of scope-resolution operator (::)
+
+#include<iostream>
+using namespace std;
+
+int a = 10; //It's a global variable 
+
+int main(void)
+{
+	int a = 20;
+
+	cout << "\nValue of a is : " << a;
+
+	cout << "\nValue of global a is : " << ::a; //::a --> refer to the 'a' which is defined 
+	                                            //globally
+
+	return 0;
+}
+
+Global variables in c/c++ are created before the execution of main.
+
+So, if we have a global variable initialized with the return value of some function. Then, in such a 
+case just for the creation and further initialization of the global variable you can observe the 
+function getting called and executed before main.
+
+In 'C' we can't have a function call placed globally. So, the try-out is not going to work in case of c.
+In C++ we can have the function call placed globally only when it is returning something i.e. it's 
+return type should not be void and it's mandatory to catch the return-value in this case.
+
+#include<iostream>
+using namespace std;
+
+int foo(void)
+{
+	cout << "\nI am in foo ";
+	return 9;
+}
+
+void bar(void)
+{
+	cout << "\nI am in bar ";
+}
+
+//int g = foo() ;
+//bar(); //Error
+
+//foo(); //CTE in C++ as well. 
+         //The function should return something and it's mandatory to catch it.
+
+int main(void)
+{
+	cout << "\nI am in main ";
+
+	return 0;
+}
+
+
+Typecasting
+------------
+
+Already covered in 'C'
+
+C++ supports 'C' style typecasting. 
+But, along with this C++ also provides with the special casting operators for performing the
+typecasting.
+
+1. static_cast
+2. dynamic_cast
+3. reinterpret_cast
+
+So, for simple C style typecasting between the "Primitive Data Types" of the expression
+we should go for the operator "static_cast"
+
+The syntax of using this operator is - 
+
+static_cast<Specify the DT into which you want the coversion to happen>
+(Specify that expression whoe's DT you want to convert temporarily)
+
+#include<iostream>
+using namespace std;
+
+int main(void)
+{
+	int m1, m2, m3, m4, m5;
+	
+	float average;
+
+	cout << "\nEnter the marks obtained in five subjects : ";
+	cin >> m1 >> m2 >> m3 >> m4 >> m5;
+
+	/*
+	cin >> m1;
+	cin >> m2;
+	cin >> m3;
+	cin >> m4;
+	cin >> m5;
+	*/
+	
+	int sum;
+	sum = m1 + m2 + m3 + m4 + m5;
+
+	//average = (float)sum / 5;
+
+	average = static_cast<float>(sum)  / 5;
+
+	cout << "\n\nAverage of marks is : " << average;
+
+
+	return 0;
+}
+
+/*
+static_cast
+dynamic_cast
+reinterpret_cast
+*/
+
+
+keyword "const" in C++ w.r.t defining of "symbolic constants" 
+-------------------------------------------------------------
+
+Understand the difference between "variable" and "constant"
+
+It's not wise to define a variable for holding the value which is "universal constant"
+Eg:- 
+float pi = 3.14f ; //Poor programming practice
+pi = 1.1f;  //This is allowed 
+cout << "\n\n" << pi;
+Any attempt done to modify it won't give you any compile time error. This could lead further into
+some "logical error"
+
+using keyword "const" in c++ we are able to define / represent "symbolic constants"
+
+Ex. of defining constant in c++
+
+const float PI = 3.14f;
+float const PI = 3.14f;
+
+
+PI is a "constant variable" of type "float"  [ Horrible. Dont read it like this]
+Read it as -  PI is a "constant" of type "float" which is initialized by value "3.14f"
+
+Any attempt done to modify the value of constant will give you a compile time error.
+It is suggested to define constants in Capital Case
+
+constant in c++ require compulsory initialization. 
+We can't simply define it and keep it uninitialized. This is a compile time error.
+
+Hint :- In C for symbolic constants we have the concept of "MACRO" (Simple MACRO)
+        In C++ for symbolic constants we have the keyword "const"
+
+
+DMA in C++ / operator "new" and operator "delete"
+---------------------------------------------------
+
+
+Let's try 
+
+Allocate memory just enough to hold a single integer value using "malloc" function in C.
+
+int *ptr;
+ptr = (int *) malloc( sizeof(int) ) ;
+
+Observation :- In case of malloc
+1. The required size has to be explicitely provided to malloc as the argument
+2. As malloc returns the base address as of type "void*" we do require "typecasting"
+
+
+"new" :- 
+
+It's an operator in C++.
+It operates/works at runtime i.e dynamically i.e. during program execution.
+It does the job of allocating the memory.
+The memory allocated by "new" is always continous in nature, it's always alocated on heap and it's 
+always alocated during the program execution.
+After the allocation is done then "new" provides us with the base-address of the allocated memory.
+The memory allocated by us explicitely using "new" has to be released back to the environment by us 
+explicitely by using "delete"
+
+a). new DataType ; 
+It will allocate memory "on heap at run-time which is continous in nature" just enough to hold
+a value belonging to the specified data type. 
+
+b) new DataType(value);
+It will allocate memory "on heap at run-time which is continous in nature" just enough to hold
+a value belonging to the specified data type. Further the reserved memory would be initialized
+by the value passed
+ 
+c). new DataType[size];
+It will create an array of the required size and the specified type.
+eg:- new int[5];
+It will create an "array of 5 integers"
+
+Note :- If [] is used in allocation. Then, we should compulsorily use it in deallocation as well.
+Else we will face the problem of memory leakage.
+
+eg:- 
+
+int *arr;
+arr = new int[5] ; //an array is created with name "arr", size 5 and data type int
+-------
+-------
+-------
+delete arr; //This will deallocate only the memory reserved for the very first array element
+            //As a result the problem of "memory leakage"
+
+delete []arr; //This will deallocate the complete allocation
+
+
+
+"delete" :-
+---------
+
+"delete" is also the operator in c++
+It's used for releasing the memory back to the environment.
+The memory allocated by us explicitely using "new" has to be released back to the environment by us 
+explicitely by using "delete". If this is not done then w'll face a problem "memory leakage"
+If [] is used in allocation. Then, we should compulsorily use it in deallocation as well.
+Else we will face the problem of memory leakage.
+
+The way to use it is - 
+
+delete base-address ; [ base-address of allocation which is done by u explicitely using "new" ]
+
+delete pointer-name ;
+
+

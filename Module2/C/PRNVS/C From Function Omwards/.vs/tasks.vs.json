@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-All Demos",
+      "appliesTo": "All Demos/All Demos/",
+      "type": "launch"
+    }
+  ]
+}

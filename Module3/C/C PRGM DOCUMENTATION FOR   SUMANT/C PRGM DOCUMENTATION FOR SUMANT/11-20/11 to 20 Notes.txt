@@ -1,0 +1,264 @@
+The buit in function  - "scanf"
+
+It is one of the built in function 
+It mainly does two tasks - 
+1. It reads the quantity from the console --> For this we need to provide the corresponding format specifier 
+as an argument to the function scanf
+2. It stores the quantity (which has been read) into the appropriate variable / L-Value (?) --> For this it is required
+to provide the base-address of the variable as an argument to the function scanf.
+This base address is provided by creating some valid expression (In this generally the unary AND (&) is observed)
+
+[
+Severity Code	Description	Project	File	Line	Suppression State
+Error	C4996	'scanf': This function or variable may be unsafe. 
+Consider using scanf_s instead. 
+To disable deprecation, use _CRT_SECURE_NO_WARNINGS. 
+See online help for details.	
+C Programming Demos e:\yash paranjape\c programming demos\c programming demos\area_perimeter_src.c	11	
+]
+
+Project --> Properties --> Processor --> Processor Defination 
+just cut the value of it 
+i.e "WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)" 
+and paste
+"_CRT_SECURE_NO_WARNINGS"
+
+
+ASCII Value 
+-----------
+
+In C every character constant holds a corresponding integer value in association with it.
+eg:- 'A' it's 65
+This  value is termed as ASCII value of that corresponding character constant
+65 is the ASCII value of 'A'
+
+ASCII :- Amercian standard code for information interchange
+
+Q/A) As said - the character type variable actually holds the ASCII value of the corresponding character.
+ASCII value is integer value. So, ideally char type variable should require size same like int type variable 
+But, we observed still, char type variable requires 1 byte of memory for it's creation.
+How is this possible ?
+
+L-Value and R-Value
+--------------------
+
+Q/A
+
+/*
+int a = 10, b;
+b = ++5;         //L-Value Required
+
+printf("\n\n%d", a); //?
+printf("\n\n%d", b); //?
+*/
+
+
+
+Typecasting (?)
+----------------
+
+In C++ we have these operators for performing the Type-Casting
+Casting operators in C++
+static_cast
+dynamic_cast
+reinterpret_cast
+
+Typecasting
+------------
+
+It is coversion of one data type into some another data type temporarily.
+It's temporary conversion between the data type of an expression
+
+
+
+a). Implicit Typecasting
+It's the temporary conversion between the DT of the operand in some given expression due to the 
+mis-match present. 
+It happens internnally and is not visible to the programer/developer.
+
+In C an expression can be executed DIRECTLY if and only if the data types of the operands involved 
+in it is same. The result that you will get will also be of the same data type 
+
+If there is a mis-match then the smaller type is always converted into larger type temporarily.
+(Because there is minimal OR no chance of data loss) provided it's not an 
+assigmnet / initilization operation i.e. = (assignment operator is not involved) 
+
+
+This further serves as an example of implicit typecasting 
+
+
+b). Explicit Typecasting 
+
+Explicitely you are allowed to convert the type of some expression into the required one. 
+The expression whoe's type has to be converted should be placed with (  ) before it.
+And inside the () the data type has to be specified in which you want the conversion to happen  
+
+Operator
+--------
+
+sum = a + b ; 
+Quotient = 3 / 2; 
+
+(eg:- +, -, *, /, %, .........., ++(increment operator), --(decrement operator), &&, ||, sizeof,...) 
+
+Operator is either a single symbol OR combination of multiple symbols with some behaviour associated
+with it.
+Operator operates upon the operands and finally we have the expression being created out
+
+a + b //a and b are the operands for the + operator 
+(x-y) + (p*q) //(x-y) and (p*q) are the operands for the + operator
+	      //x and y are the operands for the - operator 
+              //p and q are the operands for the * operator 
+
+average = (10+10+10+10+12) / 5 //For = operator average is one operand and (10+10+10+10+12) / 5
+                               //is another operand
+   			       //For / (10+10+10+10+12) is one operand and 5 is one operand 
+
+
+sum = add(a, b) //For = sum is one operand and the function call - add(a, b) is another operand
+
+
+Q/A). What is operand ? 
+Operand can be 
+1.either a variable or 
+2.constant or 
+3.it can be a function call (provided the function is returning something) OR 
+4.it can be any combination of these all things
+
+In simple words operand aswell represents an expression
+
+
+a + b //nature of + operator is binary
+(x-y) + (u-j) //nature of + operator is binary
+
+a = b //nature of = is binary
+
+a = -b //nature of - is unary
+
+a - b  //nature of - is binary
+
+Note :- There are few operators which are available as unary as well as binary
+
+&a //nature of & is unary
+
+
+max =  (a>b) ? ( a ) : ( b) //nature of = is binary
+                            //nature of ?: is ternary
+
+Ternary Operator / Conditional Operator ( ?: )
+
+(Expression1) ? (Expression2) : (Expression3) 
+
+
+Arity
+-----
+
+Arity is nothing but the total number of operands that an operator requires to operate upon
+Arity of unary operators is  1
+Arity of binary operators is 2
+Arity of ternary operators is 3
+
+Conditional Operator / Ternary Operator ( ?: )
+(expression1) ? (expression2) : (expression3)
+expression1 ? expression2 : expression3
+
+
+Precedance
+----------
+
+Precedance defines the power/strength/priority/importance of an operator.
+(eg:- precedance of * operator is greater than + )
+(eg:- precedance of () operator is greater than * )
+In a given expression which operator will operate first that is decided based upon the precedance.
+Operator with heighest precedance operates first and then the one with lower 
+precedance and son on and on.
+
+
+
+Highschool level mathematics :- BODMAS Rule [ (), +, -, *, / ]
+
+Note :- Comma is the operator with least precedance 
+Q/A). Which is the operator with highest precedance ?
+
+
+Associativity
+-------------
+10 + 20 + 30 - 40 + 50 - 10 - 20
+
+In an given expression when all the operators involved in it belong to the same precedance group then, 
+there it's not possible to tell which operator will operate first and which one later.
+
+So, in such a scenario "Associativity" comes into discussion.
+Associativity will tell you the way in which an expression will be executed
+(Left to Right
+OR
+Right to Left)
+
+
+Rule :- Associativity of all the operators is LHS to RHS except (unary operators, assignment operator(=)and 
+compound assignment operators)
+
+Expression 
+-----------
+
+Each and every expression holds a value of it's own
+
+
+Increment Operator (++) 
+
+1. This is unary operator i.e. it's arity is 1.
+(It requires only one operand to operate upon)
+
+eg:- int a = 5, b;
+     b = ++a; //Pre-Increment
+     OR
+     b = a++; //Post-Increment 
+
+2. We have two flavours involved in the discussion of increment operator 
+  (Pre-Increment and Post-Increment)
+
+3. Note that in case of increment operator (++ :- let it be pre increment or post increment). 
+   The value of the operand on which the operator is applied is incremented by 1.
+
+   Difference :- The difference is in - WHEN IS THE VALUE INCREMENTED ? 
+   In case of pre-increment very firstly we need to increment the value of the operand by 1 and then
+   use it in the required expression (not necesarily it is assigning)
+   In case of post-increment very firstly use the operand completely in the expression and then 
+   increment the value of it by 1
+   
+4. Increment operator can only be applied on L-Value (variable or object in c++ provided the operator is
+   overloaded). It can't be applied on constants. 
+
+
+Decrement Operator (--)
+------------------------
+
+Similar to Increment Operator 
+Just in this case the value of the operand would be decremented by 1.
+
+Comma Operator
+--------------
+
+1. In C Comma ( , ) is seperator as well as it's also the operator.
+
+Eg:- int a=10, b=20, c=a+b, d=55; //here it's the seperator
+     sum = add(a, b); //here it's the seperator
+
+
+Eg:- In case of below for loop comma acts as a operator.
+for(i=1 , j=1; i<3 && j<3 ;++i, ++j)
+{
+----
+----
+}
+
+The general syntax of an expression in which comma ( , )acts loke an operator is as below
+
+(expression1), (expression2), (expression3), .........,((expression)
+
+1. In this (above general syntax) comma (,) is perfectly acting as the operator.
+2. The expression has to be executed from LHS to RHS.
+3. The right hand side expression should be excuted with all the side-effects of left operand.
+   (IT will be clear when u'll go through the code of it)
+4. The value of right most expression is the value of whole expression
+5. Comma is the operator with least precedance. 

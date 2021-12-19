@@ -1,0 +1,15 @@
+2. Alorithm perform addition of two integer and display the sum/result
+------------------------------------------------------------------------
+
+ 1. START
+
+ 2. Aceept the first integer and  store it in say "no1".
+
+ 3. Accept the second integer and store it in say "no2".
+
+ 4. Perform the addition of "no1" and "no2" and store result in say "sum".
+	(sum =no1+no2;)
+
+ 5. Display the value of "sum".
+
+ 6. STOP

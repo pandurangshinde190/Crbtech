@@ -1,0 +1,6 @@
+﻿  Nested_Structure4.c
+E:\CRBtech\Module3\C\CPRM\1 Call By value\Pass By Value\13 Structure\Nested_Structure4.c(38,8): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'float *'
+E:\CRBtech\Module3\C\CPRM\1 Call By value\Pass By Value\13 Structure\Nested_Structure4.c(41,8): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'char *'
+E:\CRBtech\Module3\C\CPRM\1 Call By value\Pass By Value\13 Structure\Nested_Structure4.c(41,8): message : consider using '%hhd' in the format string
+E:\CRBtech\Module3\C\CPRM\1 Call By value\Pass By Value\13 Structure\Nested_Structure4.c(50,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'char *'
+  13 Structure.vcxproj -> E:\CRBtech\Module3\C\CPRM\1 Call By value\Pass By Value\Debug\13 Structure.exe

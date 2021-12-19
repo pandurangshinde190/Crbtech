@@ -1,0 +1,220 @@
+Object Orientation
+-------------------
+
+Why is 'C' termed as the procedural orineted language ?
+
+Function 
+---------
+
+Modularity :- To break a task into different sub tasks(modules). Allocate these sub tasks to specialized person.
+Let the sub-tasks be completed out and finally just integrate it.
+
+Advantages of Modularity 
+-------------------------
+1. Best utilization of skills
+2. Replacement/debugging/testing/rectifying a smaller component is always easier in terms of larger one w.r.t 
+space, time and money.
+3. Reusability
+
+
+--------
+
+int main(void)
+{
+	Call the required Function
+}
+
+{
+----
+}
+
+{
+----
+}
+
+{
+----
+}
+
+function / property/ behaviour/ method / PROCEDURE ......all are same
+
+Object Orientation 
+-------------------
+
+1. Abstraction
+2. Encapsulation
+3. Inheritance
+4. Polymorphism
+
+Any Programing Language which supports these four major pillars (concepts) is considered as 
+Object Orineted Language
+eg:- C++, Java, C#,....
+
+Any programing Language which supports the first two major pillars (Abstraction and Encapsulation)
+of Object Orinetation is termed as Object Based Langauge
+eg:- Visual Basic 6.0.
+     Java, C++, c# can also be considred as Object Based
+
+Q/A). Can I say every object oriented language is also object based language ?
+Yes, It's true.
+But wise to refer (as an example - Java as object oriented language)
+
+Few Consulsions :
+------------------
+1. C++ is partially object oriented (very far from the principle of pure object orientation).
+2. Even Java is not considered as the pure object oriented language.
+3. Stimula 67 is an example of pure object oriented language 
+   (Note :- You don't have the concept of Data Types in Stimula 67)
+
+
+Q/A). What is basically an Object ? 
+      (Is each and everthing present in this world an Object ?) Ans:- No (Pending)
+
+Any real world entity which has "well defined structure" and "well defined behaviour" is termed as an Object.
+Not neceasirly an object is a physical entity to which you can touch and feel.
+An object can be tangible OR intangible.....
+
+An object always hold two things all-together (combined/tightly couple ) present with it
+a). Attribute
+b). Behaviour
+
+
+Characteristics of an Object 
+-----------------------------
+
+1. State :- The "values associated with the attributes" and the "defination of behaviour" at given 
+instance of time collectively represents the "State of that object".
+
+2. Identity :- Identity is that property  of an object which distinquieshesh that object from
+all other objects typically of that type.
+It uniquely identifies an object within a particular domain
+
+Chassi No OR Registeration Number serves as the identity
+Account-number serves as the identity for "saving account"
+employee-Id serves as the identity for "employee"
+
+3. Behaviour :-
+
+When one object interacts with some other object then "something happens" (something happens w.r.t 
+change in state of those objects). 
+This change in the state of those objects as a result of the "interaction" is represented in the 
+the term of "behaviour".
+
+Note :- 
+Multiple Objects belonging to "same type" and in "same state" will provide us a "same behaviour"
+if the "interaction with all the objects is same"
+
+Eg :- In the game of NFS one car can't pass through another car. 
+      One car can't pass throught the raling.
+      When boundaries of two objects come together beyond that they are not allowed to move.
+      This is what we are putting in terms of behaviour of the object.
+
+4. Responsibility :- The role an object is supposed to serve within the system.
+
+
+Major pillars of object orientation
+------------------------------------
+
+1. Abstraction :-  
+
+It's to take an abstract of those things which are relevant to us and ignoring the rest.
+Abstraction varies from domain to domain.
+For proper abstraction we require a "domain expertise"
+
+In Case of "structure in C"
+It appeals that - it is a tool to map an object into the programming domain.
+But on the other hand object appeals that - It holds two things all-together present with it
+i.e attributes and behaviour.
+
+In case of "structure in C" we are allowed to hold the collection of "attributes only" 
+inside the body of it. "behaviour" i.e. "functions" needs to placed out-side of it 
+i.e. Globally.
+So, there is clear seperation between attributes and behaviours when the mapping is done
+with the help of "structure in C"
+
+That is the reason why - 
+after complete creation of the structure the "instance/ reserved memory alignment / L-Value"
+that is created out of it is termed as a "variable" and not as an "object".
+
+struct Student s1 ; //s1 is a variable of type "struct student" in C
+
+Student s1 ; //s1 is an object of class Student in C++
+
+Student s1 = new Student(); ////s1 is an object of class Student in Java
+
+
+
+2. Encapsulation
+
+Hidding/securing/protecting/wrapping the complexity and providing an user friendly 
+interface to the client.
+The client is supposed to make use of the interface and have actual communication with the 
+system.
+The complexity is not to be exposed to the client.
+
+
+3. Inheritance 
+
+In Object Oriented Language's we have a provision of creating/deriving/taking birth 
+a class from some pre-existing class.
+This we do for reusability purpose. This concept in general is termed as "inheritance"
+
+4. Polymorpshim
+
+Class 
+Method Overloading
+Inheritance
+Need and benifits of inheritance 
+practical implementation
+Method Overridding
+Base class pointer / Base class referance 
+Def and then implementation of "polymorphism"
+
+when same message is passed to "different types" of objects then depending upon the type 
+the reaction/behaviour generated is different.
+This is what we term it as - POLYMORPHSIM
+
+
+---------------------------------------------------------------------------------------------------
+
+Actual Technical Discussion  (C++ / Java)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

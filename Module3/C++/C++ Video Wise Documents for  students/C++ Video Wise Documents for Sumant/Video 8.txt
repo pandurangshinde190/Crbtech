@@ -1,0 +1,1904 @@
+The GS of writting a code/program in c++
+
+#include<iostream>
+using namespace std;
+
+int main( void )
+{
+  --------
+  --------
+  --------
+  return 0;
+}
+
+Let's get hands on with I/O operation in C++
+
+In C for o/p operation "printf"
+In C for i/p operation "scanf"
+
+In C++ for o/p operation "cout"
+In C++ for i/p operation "cin"
+
+Let's understand the way to use it. 
+Let's understand the advantages of using "cout" and "cin" over "printf" and "scanf"
+
+
+The general format of using cout is -
+
+cout << "format-string" ;
+cout << expression ;
+
+The general format of using cin is -
+
+cin >> name-of-the-L-Value;
+
+Benifit of using cout in c++ in comparision with using printf in c
+Here no format specifier is required
+
+Benifit of using cin in c++ in comparision with using scanf in c
+Here no format specifier is required AND 
+Here no need to specifiy the address of the variable/L-Value/Alingment
+
+
+Note :- "cout" and "cin" are not the functions.
+"cout" is an object of class "ostream"
+"cin" is an object of class "istream"
+
+Variables in C++
+-----------------
+
+1. Unlike 'C' here in 'C++' it's not mandatory to define the variable at the start of a block.
+We are free to define it anywhere we wish. But the defination should be there before using it. 
+
+2. We can create/define a variable in the place of "expression-1" i.e. "initialization" in for
+loop. Such a variable is available only until the execution of loop.
+
+for (int i = 1; i <= 10; ++i)
+{
+	cout << "\n" << i;
+}
+cout << "\nAccessing \"i\" outside the loop : " << i;
+
+
+Global Variables 
+------------------
+
+Same Rule :- Priority is given to local variables first and then the global variables w.r.t accessing
+of it.
+
+
+When we define a local variable with the same name like a global one. 
+Then because of this the global variable will go out of the scope. 
+Because priority is given to the local variables.
+Q/A) Is there any chance to access the "hidden-global-variable" ?
+
+Ans : - Yes it is possible with the help of scope-resolution operator (::)
+
+#include<iostream>
+using namespace std;
+
+int a = 10; //It's a global variable 
+
+int main(void)
+{
+	int a = 20;
+
+	cout << "\nValue of a is : " << a;
+
+	cout << "\nValue of global a is : " << ::a; //::a --> refer to the 'a' which is defined 
+	                                            //globally
+
+	return 0;
+}
+
+Global variables in c/c++ are created before the execution of main.
+
+So, if we have a global variable initialized with the return value of some function. Then, in such a 
+case just for the creation and further initialization of the global variable you can observe the 
+function getting called and executed before main.
+
+In 'C' we can't have a function call placed globally. So, the try-out is not going to work in case of c.
+In C++ we can have the function call placed globally only when it is returning something i.e. it's 
+return type should not be void and it's mandatory to catch the return-value in this case.
+
+#include<iostream>
+using namespace std;
+
+int foo(void)
+{
+	cout << "\nI am in foo ";
+	return 9;
+}
+
+void bar(void)
+{
+	cout << "\nI am in bar ";
+}
+
+//int g = foo() ;
+//bar(); //Error
+
+//foo(); //CTE in C++ as well. 
+         //The function should return something and it's mandatory to catch it.
+
+int main(void)
+{
+	cout << "\nI am in main ";
+
+	return 0;
+}
+
+
+Typecasting
+------------
+
+Already covered in 'C'
+
+C++ supports 'C' style typecasting. 
+But, along with this C++ also provides with the special casting operators for performing the
+typecasting.
+
+1. static_cast
+2. dynamic_cast
+3. reinterpret_cast
+
+So, for simple C style typecasting between the "Primitive Data Types" of the expression
+we should go for the operator "static_cast"
+
+The syntax of using this operator is - 
+
+static_cast<Specify the DT into which you want the coversion to happen>
+(Specify that expression whoe's DT you want to convert temporarily)
+
+#include<iostream>
+using namespace std;
+
+int main(void)
+{
+	int m1, m2, m3, m4, m5;
+	
+	float average;
+
+	cout << "\nEnter the marks obtained in five subjects : ";
+	cin >> m1 >> m2 >> m3 >> m4 >> m5;
+
+	/*
+	cin >> m1;
+	cin >> m2;
+	cin >> m3;
+	cin >> m4;
+	cin >> m5;
+	*/
+	
+	int sum;
+	sum = m1 + m2 + m3 + m4 + m5;
+
+	//average = (float)sum / 5;
+
+	average = static_cast<float>(sum)  / 5;
+
+	cout << "\n\nAverage of marks is : " << average;
+
+
+	return 0;
+}
+
+/*
+static_cast
+dynamic_cast
+reinterpret_cast
+*/
+
+
+keyword "const" in C++ w.r.t defining of "symbolic constants" 
+-------------------------------------------------------------
+
+Understand the difference between "variable" and "constant"
+
+It's not wise to define a variable for holding the value which is "universal constant"
+Eg:- 
+float pi = 3.14f ; //Poor programming practice
+pi = 1.1f;  //This is allowed 
+cout << "\n\n" << pi;
+Any attempt done to modify it won't give you any compile time error. This could lead further into
+some "logical error"
+
+using keyword "const" in c++ we are able to define / represent "symbolic constants"
+
+Ex. of defining constant in c++
+
+const float PI = 3.14f;
+float const PI = 3.14f;
+
+
+PI is a "constant variable" of type "float"  [ Horrible. Dont read it like this]
+Read it as -  PI is a "constant" of type "float" which is initialized by value "3.14f"
+
+Any attempt done to modify the value of constant will give you a compile time error.
+It is suggested to define constants in Capital Case
+
+constant in c++ require compulsory initialization. 
+We can't simply define it and keep it uninitialized. This is a compile time error.
+
+Hint :- In C for symbolic constants we have the concept of "MACRO" (Simple MACRO)
+        In C++ for symbolic constants we have the keyword "const"
+
+
+DMA in C++ / operator "new" and operator "delete"
+---------------------------------------------------
+
+
+Let's try 
+
+Allocate memory just enough to hold a single integer value using "malloc" function in C.
+
+int *ptr;
+ptr = (int *) malloc( sizeof(int) ) ;
+
+Observation :- In case of malloc
+1. The required size has to be explicitely provided to malloc as the argument
+2. As malloc returns the base address as of type "void*" we do require "typecasting"
+
+
+"new" :- 
+
+It's an operator in C++.
+It operates/works at runtime i.e dynamically i.e. during program execution.
+It does the job of allocating the memory.
+The memory allocated by "new" is always continous in nature, it's always alocated on heap and it's 
+always alocated during the program execution.
+After the allocation is done then "new" provides us with the base-address of the allocated memory.
+The memory allocated by us explicitely using "new" has to be released back to the environment by us 
+explicitely by using "delete"
+
+a). new DataType ; 
+It will allocate memory "on heap at run-time which is continous in nature" just enough to hold
+a value belonging to the specified data type. 
+
+b) new DataType(value);
+It will allocate memory "on heap at run-time which is continous in nature" just enough to hold
+a value belonging to the specified data type. Further the reserved memory would be initialized
+by the value passed
+ 
+c). new DataType[size];
+It will create an array of the required size and the specified type.
+eg:- new int[5];
+It will create an "array of 5 integers"
+
+Note :- If [] is used in allocation. Then, we should compulsorily use it in deallocation as well.
+Else we will face the problem of memory leakage.
+
+eg:- 
+
+int *arr;
+arr = new int[5] ; //an array is created with name "arr", size 5 and data type int
+-------
+-------
+-------
+delete arr; //This will deallocate only the memory reserved for the very first array element
+            //As a result the problem of "memory leakage"
+
+delete []arr; //This will deallocate the complete allocation
+
+
+
+"delete" :-
+---------
+
+"delete" is also the operator in c++
+It's used for releasing the memory back to the environment.
+The memory allocated by us explicitely using "new" has to be released back to the environment by us 
+explicitely by using "delete". If this is not done then w'll face a problem "memory leakage"
+If [] is used in allocation. Then, we should compulsorily use it in deallocation as well.
+Else we will face the problem of memory leakage.
+
+The way to use it is - 
+
+delete base-address ; [ base-address of allocation which is done by u explicitely using "new" ]
+
+delete pointer-name ;
+
+
+
+
+"inline function"
+------------------
+
+With "functions" we have one limitation and that is - "Function Call Overheads".
+In 'C' to resolve it we have the concept of "Function-Like-Macro" / "Macro-with-parameter"
+
+Just the function defination should be preceded with a keyword "inline".
+Because of this the normal function call procedure i.e. the JUMP PROCESS is suspended. i.e. 
+we don't have the "function-call-overhead".
+At the place of function-call the code is simply expanded.
+"inline" is just a request and not a order. If the compiler dosn't find the candidate sutibale for 
+inlining then the request is discarded and the function will be treated as a "ordinary function".
+Normally functions at max 6 lines long, without switch, loop, recursion, any complex task are 
+best suited for inlining
+
+In C for   F.C.O --------> macro with parameter / function like macro
+In C++ for F.C.O --------> inline - function
+
+inline function is handled by compiler and not by the linker. So, it's mandatory to 
+provide the complete defination of the inline function to the compiler before using it.
+
+Reference in c++
+-----------------
+
+Note :- The terminology "referance" is totally/completely different w.r.t the programing language
+C++ and Java
+
+By using this concept ( reference in c++) we are able to provide some addional name/lable to 
+an existing L-Value / Variable / Object . 
+
+eg:- 
+
+int a = 10;
+
+Here for the alignment from 1024-1028 (assumption as per the diagram drawn) we have a lable/name to it
+and that is "a".
+Using this concpet along with "a" we can have some more additional names for the existing L-Value i.e. 
+"a".
+
+
+"Anil"  / "dada" / "papu" / "tatya" / "bhau" ....................... "Anya"
+
+The general syntax of creating a referance in c++ is as below - 
+
+DataType &referance-Name  =  referantName ;
+
+eg:- 
+
+int a = 10;
+
+int &b = a;  //Read it as "b is a referance to a"
+             //OR          "b is a referance of type int and is refering to a"
+
+The meaning of it is - "a" is having mone more additional name and that is "b" (alis OR URPH)
+
+1. Referance in c++ is just a way of providing additional names to some existing 
+L-Value/variable/object
+
+2. The GS of creating a referance in C++ is as below - 
+DataType &referance-Name  =  referantName ;
+
+3. '&' is not the operator over here. It's just a symbol to represent that the further name is 
+of a referance
+
+4. = is compulsory because referance requires compulsory initialization. 
+
+5. referant is nothing but name of an existing L-Value/variable/object
+
+6. no seperate memory is allocated for refreance rather it shares the memory of the referant 
+
+
+#include<iostream>
+using namespace std;
+
+//DataType &referance-Name  =  referantName ;
+
+int main(void)
+{
+	int a = 10;
+	int &b = a; 
+
+	cout << "\nValue of a is : " << a;
+	cout << "\nValue of b is : " << b;
+
+	cout << "\n\n";
+
+	cout << "\nAddress of a is : " << &a;
+	cout << "\nAddress of b is : " << &b;
+
+	b = 77;
+	cout << "\n\n";
+
+	cout << "\nValue of a is : " << a;
+	cout << "\nValue of b is : " << b;
+
+	a = 99;
+	cout << "\n\n";
+
+	cout << "\nValue of a is : " << a;
+	cout << "\nValue of b is : " << b;
+
+	return 0;
+}
+
+
+Q/A). What is the need of referance ?
+      Why should I have an additional name for some existing variable-name/L-Value ?        
+
+Pass By Value     (In C and In C++)
+Pass By Address   (In C and In C++)
+Pass By Referance (In C++. We don't have it in C) 
+     
+
+Revision of C i.e. pass by address in overcoming the limitation of return statement
+
+w.r.t the code 
+We saw and we know how the limitation of return statement is overcomed by using the concept of 
+"pass by address".
+
+Observation :- For holding the value of actual parameter we require to specify the formal parameters.
+Some memory we require to reserve for the creation of formal parameters
+
+
+When we go for "pass-by-referance" the benifit which we get is -
+We require no memory for the creation of the formal argument.
+Formal Argument simply share the same memory of the referant.
+
+
+/*
+#include<iostream>
+using namespace std;
+
+void calculateAreaPerimeter(int radius);
+
+int main(void)
+{
+	int radius;
+
+	cout << "\nEnter the value of radius : ";
+	cin >> radius;
+
+	calculateAreaPerimeter(radius);
+
+	return 0;
+}
+
+void calculateAreaPerimeter(int radius)
+{
+	float a;
+	float p;
+
+	a = 3.14f * radius * radius;
+	p = 2 * 3.14f * radius;
+
+	//cout << "\nArea is : " << a;
+	//cout << "\nPerimeter is : " << p;
+
+	//Q/A :- I want to display the value of "area" and "perimeter" in "main"
+	//This is not possible using "return statement"
+}
+*/
+
+/*
+#include<iostream>
+using namespace std;
+
+void calculateAreaPerimeter(int radius, float *a, float *p);
+
+int main(void)
+{
+	int radius;
+	float area;
+	float perimeter;
+
+	cout << "\nEnter the value of radius : ";
+	cin >> radius;
+
+	calculateAreaPerimeter(radius, &area, &perimeter);
+
+	cout << "\n\n\nArea is : " << area;
+	cout << "\nPerimeter is : " << perimeter;
+
+	return 0;
+}
+
+void calculateAreaPerimeter(int radius, float *a, float *p)
+{
+	(*a) = 3.14f * radius * radius;
+	(*p) = 2 * 3.14f * radius;
+}
+*/
+
+
+#include<iostream>
+using namespace std;
+
+void calculateAreaPerimeter(int &x, float &y, float &z);
+
+int main(void)
+{
+	int radius;
+	float area;
+	float perimeter;
+
+	/*
+	cout << "\nAddress of radius is : " << &radius;
+	cout << "\nAddress of area is : " << &area;
+	cout << "\nAddress of perimeter is : " << &perimeter;
+	calculateAreaPerimeter(radius, area, perimeter);
+	*/
+
+	
+	cout << "\nEnter the value of radius : ";
+	cin >> radius;
+
+	calculateAreaPerimeter(radius , area , perimeter);
+
+	cout << "\n\n\nArea is : " << area;
+	cout << "\nPerimeter is : " << perimeter;
+
+
+	return 0;
+}
+
+/*
+void calculateAreaPerimeter(int &x=radius, float &y=area, float &z=perimeter)
+'x' is refering to 'radius'
+'y' is refering to 'area'
+'z' is refering to 'perimeter'
+*/
+
+void calculateAreaPerimeter(int &x, float &y, float &z)
+{
+	/*
+	cout << "\n\n\nAddress of x is : " << &x;
+	cout << "\nAddress of y is : " << &y;
+	cout << "\nAddress of z is : " << &z;
+	*/
+
+	y = 3.14f * x * x;
+	z = 2 * 3.14f * x;
+
+}
+
+Function / Method Overloading
+------------------------------
+
+In C we are not allowed to define mutiple functions with same.
+i.e. In C name of each and every function should be unique. 
+
+#include<stdio.h>
+
+void add(int a, int b)
+{
+	//addition of 2 integers i.e. a and b 
+}
+
+void add(float x, float y)
+{
+	//addition of 2 floats i.e. x and y 
+}
+
+int main(void)
+{
+	return 0;
+}
+
+The above code has to give a compile-time-error in case of C Programing.
+
+C++ allows defining mutiple functions with the same name. [Provided u follow the protocol]
+And this is what we term it as -  "Function Overloading".
+So, we can have a common-name/unique-name for mutiple functions with the name representing some 
+similar task being performed  (eg:- add OR addition )
+
+
+Let's go back and revise signature of a function 
+-------------------------------------------------
+
+return_type function_name (argument - list ) ;
+
+For function overloading it's mandatory to have a difference in the signature of the method. 
+(Off-corse the name of the method should be same )
+
+
+
+#include<iostream>
+using namespace std;
+
+void addition(int a, int b)
+{
+	int sum;
+	sum = a + b;
+	cout << "\nAddition of two integers is : " << sum;
+}
+
+void addition(float x, float y)
+{
+	float sum;
+	sum = x+y;
+	cout << "\nAddition of two floats is : " << sum;
+}
+
+int main(void)
+{
+
+	addition(10, 20);  //addition(int, int)
+
+	addition(1.1f, 2.2f); //addition(float, float)
+
+	return 0;
+}
+
+
+default arguments 
+------------------
+
+"default arguments" compulsory needs to be specified in the function declaration.
+
+It has to given from the trailing end. (from RHS to LHS)
+
+In case of function call if the arguments are missing then the one which you have set as the
+default argument will be considered. If you are passing the argument/t's explicitely then the 
+priority is given for your passed arguments.
+
+
+#include<iostream>
+using namespace std;
+
+void add(int a, int b, int c=5, int d=2, int e=1);
+
+int main(void)
+{
+	//CTE :- Too few arguments. First 2 arguments are compulsory
+	/*
+	//add(); 
+
+	//add(10);
+	*/
+
+	add(10, 20);
+
+	add(10, 20, 30);
+
+	add(10, 20, 30, 40);
+
+	add(10, 20, 30, 40, 50);
+
+	return 0;
+}
+
+void add(int a, int b, int c, int d, int e)
+{
+	cout << "\n\nAddition is " << a+b+c+d+e;
+
+	//10 20  5  2  1   ---> 38
+
+	//10, 20, 30  2  1  --> 63
+
+	//10, 20, 30, 40 1  -->  101
+
+	//10, 20, 30, 40, 50  ---> 150
+}
+
+
+
+
+
+
+
+"class" in C++
+--------------
+
+The G.S of creating a structure in 'C' is as below - 
+
+struct structName
+{
+  -------
+  -------
+  Attributes / Fields  
+  -------
+  -------
+};
+
+The G.S of creating a class in 'C++' is as below - 
+
+class className
+{
+ ---------
+ ---------
+ Attributes / Fields 
+ +
+ Behaviour / Function
+ ---------
+ ---------
+};
+
+Note :- Collectively the "attributes" and "behaviours" are considered as the "members of the class"
+                                                                              ---------------------
+
+1. In case of "structure in c" we are not allowed to write a function inside it
+   In case of "class in c++"  we are allowed to write a function inside it ( such a function
+   further is represented as a - "member function" )
+
+2. After complete creation of the structure in C we are allowed to create "variables" out of it.
+   After complete creation of the class in c++ we are allowed to create "objects" out of it.
+
+Note :- Along with this in case of C++ we also have access-specifiers / access-modifiers. 
+
+a). private
+b). public
+c). protected
+
+Inside the body of the class , as and when required we are supposed to make use of the 
+respective access - specifier.
+
+Note :- The default access-specifier for a class in C++ is private.
+
+The general syntax of creating a class in C++
+----------------------------------------------
+class className
+{
+	
+	access_specifier :
+                            Attributes / Fields
+                            +
+                            Behaviour / Function
+
+	access_specifier :
+
+			    Attributes / Fields
+                            +
+                            Behaviour / Function
+	
+        access_specifier :
+
+			    Attributes / Fields
+                            +
+                            Behaviour / Function
+
+};
+
+
+class className
+{
+	
+	access_specifier :
+                            Data_Type_1   initialization_list
+			    Data_Type_2   initialization_list
+                            .
+  			    .
+                            Data_Type_n   initialization_list
+
+	 //for eg:-         int day, month, year ; 
+                            
+			    return_type name_of_the_function_1(arg. list if any )
+                            {
+  				------------
+			    }
+			    .
+			    .
+			    return_type name_of_the_function_1(arg. list if any )
+                            {
+  				------------
+			    }
+
+	 //for eg:-         void display()
+                            {
+                              cout<<"-----------------------";
+                            }
+			                                
+	access_specifier :
+
+			    Attributes / Fields
+                            +
+                            Behaviour / Function
+	
+        access_specifier :
+
+			    Attributes / Fields
+                            +
+                            Behaviour / Function
+
+};
+
+"class" - it's a keyword in C++
+
+"className" - it should be a valid identifier and sensible name
+
+{
+};   - body of the class. It can contain "attributes" and "behaviour"
+       semicolon is mandatory
+
+
+Let's go a practical creation of a very simple class 
+-----------------------------------------------------
+
+"Ideal" Class in C++ (in general it's applicable for any Object Oriented Language)
+--------------------
+
+
+class cDate
+{
+	int day;
+	int month;
+	int year;
+};
+
+
+In the above case "day, month and year" would be considered as the private members of the class cDate.
+The reason is - by deafult the access-specifier for a class is "private"
+
+class cDate
+{
+	private :
+	
+		int day;
+		int month;
+		int year;
+
+};
+
+Even this same as the previous one .
+
+Note :- After complete creation of a class we are allowed / eligible for creating OBJECTS out of it.
+This you can just compare with - 
+creation of a variable in C out of some structure that you defined.
+
+The general syntax for object creation in C++ is - 
+
+class-name objectName ; 
+
+//OR
+
+class-name objectName(arguments if required); 
+
+Even multiple objects can be created using comma (,) as the seperator.
+
+Note :- The members of the class [Attributes + Behaviours] needs to be accessed using the operator 
+DOT (.) along with the name of the object [Just like u do in case of structure in C].
+
+The general syntax of accessing the members is as below - 
+
+"objectName.member"
+
+
+private :- private members[Attributes + Behaviour] are accessible only inside the same class. 
+i.e. those are accessible only inside some function of the same class.
+i.e. Outside of the class those are not accessible.
+
+class cDate
+{
+	private :
+	
+		int day; 
+		int month; 
+		int year;  
+
+};
+
+int main(void)
+{
+	cDate d1; //d1 is an object of class cDate
+
+	d1.day = 25; //This is a compile time error :- "day is a private member of class cDate
+                     //So, it's accessible only inside the class cDate
+                     //i.e. it's accessible only inside some function of the class cDate
+                     //i.e. it's not accessible outside of the class
+                     //Here we have accessed it inside a function "main". "main" is not 
+                     the member of the class cDate. So that has to give an error
+	
+	return 0;
+}
+
+
+public :- private members[Attributes + Behaviour] are accessible everywhere. i.e. inside the class 
+as well as outside the class.
+
+
+#include<iostream>
+using namespace std;
+
+class cDate
+{
+	private :
+	
+		int day; 
+		int month; 
+		int year;  
+
+	public :
+
+		//Can I have a public function i.e. a behaviour which will do the required
+		//work for me i.e. initializing DATE i.e. day, month and year to some 
+		//default value
+
+		void initDate()
+		{
+			day = 25;
+			month = 10;
+			year = 1987;
+		}
+
+
+		void setDate(int d, int m, int y)
+		{
+			day = d;
+			month = m;
+			year = y;
+		}
+
+		//Can I have a public function which will take care of displaying the date
+		//eg:- from main instead of accessing the private members directly I will
+		//call this function
+
+		void display()
+		{
+			cout << "\n\nDisplaying d1's Date : " << day << "-" << month << "-" << year;
+		}
+
+
+		void accept()
+		{
+			cout << "\nEnter the day : ";
+			cin >> day;
+			cout << "\nEnter the month : ";
+			cin >> month;
+			cout << "\nEnter the year : ";
+			cin >> year;
+		}
+
+
+		//Setter Methods  / Setters  / Mutators
+		void setDay(int d)
+		{
+			day = d;
+		}
+
+		void setMonth(int m)
+		{
+			month = m;
+		}
+
+		void setYear(int y)
+		{
+			year = y;
+		}
+
+		//Getter Methods / Getters / Accessors
+		int getDay()
+		{
+			return day;
+		}
+
+		int getMonth()
+		{
+			return month;
+		}
+
+		int getYear()
+		{
+			return year;
+		}
+};
+
+
+int main(void)
+{
+	cDate d1; //d1 is an object of class cDate
+
+	/*
+	cDate d2; //d2 is an object of class cDate
+
+	cDate d3, d4, d5; //d3, d4 and d5 are objects of class cDate
+	*/
+
+	/*
+	d1.day = 25;
+	d1.month = 10;
+	d1.year = 1987;
+
+
+	cout << "\n\nDisplaying d1's Date : " << d1.day << "-" << d1.month << "-" << d1.year;
+	*/
+
+
+	//Task :- assigning some default value to day , month and year
+	/*
+	d1.day = 25;
+	d1.month = 10;
+	d1.year = 1987;
+	*/
+	d1.initDate();
+
+	//Task :- displaying the date
+	/*
+	cout << "\n\nDisplaying d1's Date : " << d1.day << "-" << d1.month << "-" << d1.year;
+	*/
+	
+	d1.display();
+
+	//Task :- accepting the date
+	/*
+	cout << "\nEnter the day : ";
+	cin >> d1.day;
+	cout << "\nEnter the month : ";
+	cin >> d1.month;
+	cout << "\nEnter the year : ";
+	cin >> d1.year;
+	*/
+
+	/*
+	d1.accept();
+	d1.display();
+	*/
+
+	//Task :- I want to alter/SET value for some individual attribute
+
+	/*
+	d1.day = 21;
+	*/
+
+	d1.setDay(21);
+	d1.display();
+
+	//Task :- I want to retrieve/fetch/receive/GET value of some individual attribute
+	//for some further proccessing
+	/*
+	int temp = d1.day; 
+	*/
+	int temp = d1.getDay();
+	cout << "\nValue of day with d1 is : " << temp;
+
+	d1.setDate(21, 11, 2018);
+	d1.display();
+
+	return 0;
+}
+
+constructor 
+------------
+
+constructor is just a member function of a class.
+                      ---------------  
+It's considered as a "special member function" of the class.
+It's automatically called when an object is created.
+The name of the constructor has to be same with the name of the class.
+Constructor do not have any return type. Not even "void"
+The rules of function overloading are as it is applicable for "constructor overloading"
+as well. i.e. we can have multiple constructors i.e. overloaded inside a class.
+
+Object Creation  ------------>   constructor call
+
+Whatever task we want to do  immediately after creation of the object (for the object)
+that task has to be coded inside the constructor. The logic is - constructor will get called 
+automatically and as such the task coded will also get executed. No need to call any function
+explicitely. 
+Hint :- Generally the job of "initialization of the attributes" is done inside the constructor.
+
+
+#include<iostream>
+using namespace std;
+
+class cDate
+{
+private:
+
+	int day;
+	int month;
+	int year;
+
+public:
+
+	//no argument constructor / default constructor 
+	cDate()
+	{
+		//cout << "\nI am inside the no-argument constructor ";
+		day = 25;
+		month = 10;
+		year = 1987;
+	}
+
+	//parametarized constructor / cDate(int , int , int )
+	cDate(int d, int m, int y)
+	{
+		//cout << "\nI am inside the parametarized constructor ";
+		day = d;
+		month = m;
+		year = y;
+	}
+
+
+
+	void initDate()
+	{
+		day = 25;
+		month = 10;
+		year = 1987;
+	}
+
+
+	void setDate(int d, int m, int y)
+	{
+		day = d;
+		month = m;
+		year = y;
+	}
+
+	void display()
+	{
+		cout << "\n\nDisplaying d1's Date : " << day << "-" << month << "-" << year;
+	}
+
+
+	void accept()
+	{
+		cout << "\nEnter the day : ";
+		cin >> day;
+		cout << "\nEnter the month : ";
+		cin >> month;
+		cout << "\nEnter the year : ";
+		cin >> year;
+	}
+
+
+	void setDay(int d)
+	{
+		day = d;
+	}
+
+	void setMonth(int m)
+	{
+		month = m;
+	}
+
+	void setYear(int y)
+	{
+		year = y;
+	}
+
+	
+	int getDay()
+	{
+		return day;
+	}
+
+	int getMonth()
+	{
+		return month;
+	}
+
+	int getYear()
+	{
+		return year;
+	}
+
+
+};
+
+
+int main(void)
+{
+	cDate d1; //Q/A :- Now which constructor will be called ?
+	          //We have 2 different constructor's defined insie our class 
+	          //Here no parameters we have passed so, we will observe "no-argument"
+	          //constructor getting called
+	          //cDate()
+
+
+
+
+	cDate d2(9, 9, 2020);  //cDate(int, int, int)
+
+	d1.display();
+	d2.display();
+
+
+	return 0;
+}
+
+
+destructor
+-----------
+
+This is as well a special "member function" of the class. 
+Because, it's also called automatically.
+
+It will be called just before the destruction of an object.
+
+object creation  [After complete creation of the object]   ----------> Constructor 
+object destruction [Just before destroying the object]     ----------> Destructor 
+
+The name of it has to be same with that of a class. 
+It should not have any argument. 
+It should not have any return type.
+It should be preceded with the symbol ~
+Unlike constructor here in case of destructor we don't have options like - 
+parametarized destructor.
+
+The order of destruction is always reverse of the order of creation [Because objects are also 
+created on stack which follows LIFO ]
+
+eg:- 
+
+~cDate()
+{
+}
+
+Generally the job of releasing the resources/memory free-up such things are performed inside 
+the destructor.
+
+#include<iostream>
+using namespace std;
+
+class cDate
+{
+private:
+
+	int day;
+	int month;
+	int year;
+
+public:
+
+	//no argument constructor / default constructor 
+	cDate()
+	{
+		//cout << "\nI am inside the no-argument constructor ";
+		day = 25;
+		month = 10;
+		year = 1987;
+	}
+
+	//parametarized constructor / cDate(int , int , int )
+	cDate(int d, int m, int y)
+	{
+		//cout << "\nI am inside the parametarized constructor ";
+		day = d;
+		month = m;
+		year = y;
+	}
+
+	~cDate()
+	{
+		cout << "\nInside destructor. Destructing " << day << "-" << month << "-" << year;
+	}
+
+
+
+	void initDate()
+	{
+		day = 25;
+		month = 10;
+		year = 1987;
+	}
+
+
+	void setDate(int d, int m, int y)
+	{
+		day = d;
+		month = m;
+		year = y;
+	}
+
+	void display()
+	{
+		cout << "\n\nDisplaying Date : " << day << "-" << month << "-" << year;
+	}
+
+
+	void accept()
+	{
+		cout << "\nEnter the day : ";
+		cin >> day;
+		cout << "\nEnter the month : ";
+		cin >> month;
+		cout << "\nEnter the year : ";
+		cin >> year;
+	}
+
+
+	void setDay(int d)
+	{
+		day = d;
+	}
+
+	void setMonth(int m)
+	{
+		month = m;
+	}
+
+	void setYear(int y)
+	{
+		year = y;
+	}
+
+	
+	int getDay()
+	{
+		return day;
+	}
+
+	int getMonth()
+	{
+		return month;
+	}
+
+	int getYear()
+	{
+		return year;
+	}
+
+
+};
+
+
+int main(void)
+{
+	{
+		cDate d1; //Q/A :- Now which constructor will be called ?
+				  //We have 2 different constructor's defined insie our class 
+				  //Here no parameters we have passed so, we will observe "no-argument"
+				  //constructor getting called
+				  //cDate()
+
+
+
+
+		cDate d2(9, 9, 2020);  //cDate(int, int, int)
+
+		//d1.display();
+		//d2.display();
+	}
+
+	cout << "\n\nOut Of the arbitary block ";
+
+	return 0;
+}
+
+"this" in C++
+---------------
+
+Just consider the class "cDate".
+Let's get an object created out of it - 
+
+eg:- cDate d1(9, 9, 2020); //d1 is an object of class cDate
+
+
+
+"this" is nothing but it's a pointer in C++. It's the name of the pointer.
+An implicit copy of "this"-pointer is available 
+inside every non-static member function of the class.
+             --------------------------
+
+eg:- d1.display(); //A non static member function "display" is being called
+
+In the above case as well - "this" is available inside the function "display"
+and it will hold the base address of the object "d1"
+
+Note :- 
+
+"this" is a pointer in C++ .
+"this" is the name of the pointer.
+It's available inside every non-static member function of the class.
+It holds the base address of the "current invoking object" i.e. base address of that object
+for which the function is called.
+Using "this" we can refer to the object's containts just by applying the operator "arrow" on it.
+i.e. 
+this -> member ;
+
+
+keyword "static" in C++ w.r.t class-level-members
+--------------------------------------------------
+
+"static" is a keyword in C/C++.
+
+In C we can have 
+1. static local variable (Here "static" is used as a "storage type"/"storage class"
+
+In C++ we can have 
+1. static local variable 
+2. "static" keyword can be applied to the members [fields + functions] of a class.
+    a). static attribute / field defined inside a class
+    b). static function defined inside a class.
+
+
+class className
+{
+  private :
+           ---------- 
+           ----------
+           ----------
+  public :
+};
+
+
+class YashCoaching_2020_Sep_IT_CPP_Batch_Student
+{
+ -----------name                       //This all is non static
+ -----------qualification
+ -----------email
+ -----------address
+ -----------feesPaid;
+ -----------prn;
+ -----------icardNo;
++
+ -----------trainer;                      //This all should be marked as static
+ -----------well-ventilated-class-room
+ -----------whiteboard and markers
+
+};
+
+int main(void)
+{
+	YashCoaching_2020_Sep_IT_CPP_Batch_Student s1, s2, s3;
+}
+
+Non-static attributes of a class are given seperately to each and every object created further.
+i.e. Each and every object holds a seperate copy of the "non-static-attributes".
+
+Unlike this - "static-attributes" of a class are to be shared by all the objects created further.
+i.e. every individual object will not have a seperate copy of the "static-attribute" rather, 
+there will be a single copy and all the objects would simply share it.
+
+The general syntax of coding a static field inside a class is - 
+
+     static DataType fieldName ;
+
+eg:- static int counter;
+
+
+The static field has to be initialized globally using the g.s. as -
+
+      DataType className:: name-of-the-static-field = initial-value ; 
+
+eg :- int cDate::counter = 0;
+
+
+Demo for static-field and static-member-function
+---------------------------------------------------
+
+#include<iostream>
+using namespace std;
+
+class cDate
+{
+private:
+
+	int day;
+	int month;
+	int year;
+
+	static int counter;
+
+public:
+
+	//no argument constructor / default constructor 
+	cDate()
+	{
+		//cout << "\nI am inside the no-argument constructor ";
+		day = 25;
+		month = 10;
+		year = 1987;
+		counter++;
+	}
+
+	//parametarized constructor / cDate(int , int , int )
+	cDate(int d, int m, int y)
+	{
+		//cout << "\nI am inside the parametarized constructor ";
+		day = d;
+		month = m;
+		year = y;
+		counter++;
+	}
+
+	~cDate()
+	{
+		//cout << "\nInside destructor. Destructing " << day << "-" << month << "-" << year;
+	}
+
+
+
+	void initDate()
+	{
+		day = 25;
+		month = 10;
+		year = 1987;
+	}
+
+
+	void setDate(int d, int m, int y)
+	{
+		day = d;
+		month = m;
+		year = y;
+	}
+
+	
+
+
+	void accept()
+	{
+		cout << "\nEnter the day : ";
+		cin >> day;
+		cout << "\nEnter the month : ";
+		cin >> month;
+		cout << "\nEnter the year : ";
+		cin >> year;
+	}
+
+
+	void setDay(int d)
+	{
+		day = d;
+	}
+
+	void setMonth(int m)
+	{
+		month = m;
+	}
+
+	void setYear(int y)
+	{
+		year = y;
+	}
+
+
+	int getDay()
+	{
+		return day;
+	}
+
+	int getMonth()
+	{
+		return month;
+	}
+
+	int getYear()
+	{
+		return year;
+	}
+
+	//this is not a object specific function. so mark it static
+	static void displayTotalNumberOfObjectsCreated()
+	{
+		cout << "\n\nTotal No. of objects created so far is : " << counter;
+	}
+
+
+	//To call display we observe that "object" is mandatory
+	//It's a object specific function
+	void display()
+	{
+		cout << "\n\nDisplaying Date : " << this->day << "-" << this->month << "-" << this->year;
+	}
+
+
+};
+
+int cDate::counter = 0;
+
+int main(void)
+{
+	cDate::displayTotalNumberOfObjectsCreated();
+
+	cDate d1;
+	cDate d2(9, 9, 2020);
+
+	cDate::displayTotalNumberOfObjectsCreated();
+
+	cDate d3(21, 11, 2018);
+	cDate d4;
+
+	cDate::displayTotalNumberOfObjectsCreated();
+
+
+	return 0;
+}
+
+usage of the scope resoultion operator in C++ (::)
+
+1. To access the global variables ( ::a )
+
+2. To initialize the static class level attribute (int cDate::counter = 0; )
+
+3. To call a static member function of a class ( cDate::showTotalNumberOfObjectsCreatedSoFar() )
+
+
+Let's create a class to represent the concept of "complex-number"
+------------------------------------------------------------------
+
+"X + iY"
+
+X :- Real Part
+Y :- Imaginary Part
+
+class cComplex
+{
+   private :
+              int real;
+	      int imaginary;
+
+   public  :
+};
+
+
+Demo Code
+---------
+
+#include<iostream>
+using namespace std;
+
+
+class cComplex
+{
+	private :
+	
+		int real;
+		int imaginary;
+
+	public  :
+
+		cComplex()
+		{
+			real = 1;
+			imaginary = 1;
+		}
+
+		cComplex(int r, int i)
+		{
+			real = r;
+			imaginary = i;
+		}
+
+		void display()
+		{
+			cout << "\nComplex Number is : " << real << " +i" << imaginary;
+		}
+
+		void accept()
+		{
+			cout << "\n\nEnter the real part ";
+			cin >> real;
+			cout << "\nEnter the imaginary part ";
+			cin >> imaginary;
+		}
+
+		void setReal(int r)
+		{
+			real = r;
+		}
+
+		void setImaginary(int i)
+		{
+			imaginary = i;
+		}
+
+		int getReal()
+		{
+			return real;
+		}
+
+		int getImaginary()
+		{
+			return imaginary;
+		}
+};
+
+
+
+
+int main(void)
+{
+	/*
+	cComplex c1; //"c1" is an object of class cComplex
+	c1.display();
+
+	cComplex c2(2, 4);
+	c2.display();
+
+	c1.accept();
+	c1.display();
+
+	c1.setReal(1);
+	c1.setImaginary(1);
+	c1.display();
+
+	c2.setReal(c1.getReal());
+	c2.setImaginary(c1.getImaginary());
+
+	c1.display();
+	c2.display();
+	*/
+
+
+	return 0;
+}
+
+
+Just note the below code 
+
+cComplex c1(2, 2);
+cComplex c2(3, 5);
+cComplex c3;
+c1 + c2;
+//OR
+c3 = c1 + c2;
+
+
+Right now we will face a compile time error for this  - The reason is - 
++ operator is operating upon c1 and c2. 
+c1 and c2 are the objects 
+How to add two objects of class cComplex is not known to the C++ execution environment.
+
+[eg:- add the real - real part's and give it to c3's real part
+     add the imaginary-imaginary part and give it to c3's imaginary part
+ This is known by U as a person. C++ execution environment do not have any idea of it]
+
+int a = 10;
+int b = 20;
+int c;
+
+c = a + b;
+//OR
+c = 50 + 75; 
+//OR
+150 + 221 ; 
+
+Here we won't have any CTE the reason is the operator + knows how to add two integers.
+
+
+One of the the solution to the above problem (adding two complex numbers) is - 
+
+1. We can explicitely define a function (UDF) which will take care of addition and returning 
+   the appropriate value/result
+   a). Define the function globally [Note that private members of the class won't be accessible
+                                     directly]
+   OR
+   b). Define the function inside the class i.e. let it be a member function of the class
+
+Limitation/Note :- In this case the function needs to be called explicitely
+
+2. Go for overloading of the operator (if possible)
+
+Note :- Here as well we are just defining the operator function.
+        Again we have a privelage to define it either as a global function or as a member function
+        When the respective operator is used then there such a operator function is automatically
+        called
+
+
+Code for your reference is below
+---------------------------------
+
+#include<iostream>
+using namespace std;
+
+
+class cComplex
+{
+	private :
+	
+		int real;
+		int imaginary;
+
+	public  :
+
+		cComplex()
+		{
+			real = 1;
+			imaginary = 1;
+		}
+
+		cComplex(int r, int i)
+		{
+			real = r;
+			imaginary = i;
+		}
+
+		void display()
+		{
+			cout << "\nComplex Number is : " << real << " +i" << imaginary;
+		}
+
+		void accept()
+		{
+			cout << "\n\nEnter the real part ";
+			cin >> real;
+			cout << "\nEnter the imaginary part ";
+			cin >> imaginary;
+		}
+
+		void setReal(int r)
+		{
+			real = r;
+		}
+
+		void setImaginary(int i)
+		{
+			imaginary = i;
+		}
+
+		int getReal()
+		{
+			return real;
+		}
+
+		int getImaginary()
+		{
+			return imaginary;
+		}
+
+		//c3 = c1.add(c2) ;
+		cComplex add(cComplex c2)
+		{
+			cComplex temp;
+			temp.real = real + c2.real;
+			temp.imaginary = imaginary + c2.imaginary;
+			return temp;
+		}
+};
+
+
+cComplex add(cComplex c1, cComplex c2)
+{
+	cComplex temp;
+
+	//"add" is a global function it will not have access to the private members 
+	//of the class "cComplex"
+	/*
+	temp.real = c1.real + c2.real;
+	temp.imaginary = c1.imaginary + c2.imaginary;
+	return temp;
+	*/
+
+	int r, i;
+	r = c1.getReal() + c2.getReal();
+	i = c1.getImaginary() + c2.getImaginary();
+
+	temp.setReal(r);
+	temp.setImaginary(i);
+
+	return temp;
+}
+
+
+int main(void)
+{
+	/*
+	cComplex c1; //"c1" is an object of class cComplex
+	c1.display();
+
+	cComplex c2(2, 4);
+	c2.display();
+
+	c1.accept();
+	c1.display();
+
+	c1.setReal(1);
+	c1.setImaginary(1);
+	c1.display();
+
+	c2.setReal(c1.getReal());
+	c2.setImaginary(c1.getImaginary());
+
+	c1.display();
+	c2.display();
+	*/
+
+	//I want to perform addition of two complex numbers 
+	//I want to add "c1 and c2" and give the result to "c3"
+	//Something like "c3 = c1 + c2"
+
+	/*
+	cComplex c1(2, 2);
+	cComplex c2(3, 5);
+	cComplex c3;
+
+	c3 = add(c1, c2)   ;
+	c3.display();
+	*/
+	
+	/*
+	cComplex c1(2, 2);
+	cComplex c2(3, 6);
+	cComplex c3;
+
+	c3 = c1.add(c2) ;
+
+	c3.display();
+	*/
+
+
+	/*
+	int a = 10;
+	int b = 20;
+	int c;
+	c = a + b;
+	*/
+
+	return 0;
+}

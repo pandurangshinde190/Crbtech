@@ -1,0 +1,70 @@
+
+VARIABLE
+
+Storage_Type  Data_Type  initialixation_List ;
+
+
+
+Storage Type  OR Storage Class :- auto, static, register and extern 
+
+For local variables the default storage type is auto (automatic local variable)
+
+local variable and global bariable
+
+{
+ 
+-----------
+-----------
+-----------
+}
+
+auto = int a;
+
+
+
+Data Type :
+
+a) primitive Type OR Build In Type :- int,float,double and char
+
+b) User defind Type :- structure, union, enum, typedef(Concept)
+
+Qualifiers in 'C' :- short, long, signed, unsigned
+
+eg :- short int, long int, unsigned int
+
+Derived Data Type :- "Array" and "String"
+
+Importance of Data Type :
+-------------------------
+
+Storage_Type  Data_Type  initialixation_List ;
+
+int a;    //a is a variable of type 'int'
+
+auto int a; 
+
+int p ; // p is a variable of type "int"
+
+int q; // r is a variable of type "int"
+
+int r;  // r is a variable of type "int"
+
+int p,q,r; //
+
+int p=10, q=20, r =30;
+
+
+float f1 = 1.1f;
+float f2;
+float f3 =f1;
+float f4 =1.1f +f3;
+
+char ch;
+char c = 'c';
+
+double d1, d2, d3;
+d1 =1.1;
+d2 =2.2;
+d3 =d1 + d2;
+
+

@@ -1,0 +1,18 @@
+Algorithm to find area and perimeter (Circumference) of circle
+----------------------------------------------------------------
+
+ 1. START
+
+ 2. Aceept the value for "radius" and store it in say - "radius"
+	(input process. In program w'll make use of scanf)
+
+ 3. Calculate the area and store it in say "area"
+	(area=3.14*radius*radius)
+
+ 4. Calculate the perimeter and stor it in say "perimeter"
+	(perimeter =2 * 3.14 * radius)
+
+ 5. Display value of perimeter
+	(Output process)
+
+ x. STOP

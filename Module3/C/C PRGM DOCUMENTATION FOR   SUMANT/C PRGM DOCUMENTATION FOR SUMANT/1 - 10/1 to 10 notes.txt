@@ -1,0 +1,237 @@
+
+ Algorithm to perform addition of two integers and display the result
+---------------------------------------------------------------------
+
+1. START
+
+2. Accept first integer and store it in say "no1".
+
+3. Accept second integer and store it in say "no2".
+
+4. Peform addition of "no1" and "no2" and store it in say "sum"
+   (sum = no1 + no2 ; )
+
+5. Display the value of "sum"
+
+6. END
+
+
+VARIABLE
+---------
+
+Storage_Type  Data_Type  initialization_List ; 
+  
+
+
+Storage Type OR Storage Class :- auto, static, register and extern 
+
+For local variables the default storage type is auto (automatic local variable) 
+
+local variable and global variable 
+
+***********
+{
+------
+------
+------
+}
+**********
+
+int a ; 
+
+
+Data Type :
+
+a). Primitive Types OR Built In Types :- int, float, double and char
+
+
+b). User defined Types :- structure, union, enum, typedef (Concepts)
+
+Qualifiers in 'C' :- short, long, signed, unsigned 
+
+eg :- short int , long int, unsigned int 
+
+Derived Data Type :- "Array" and "String"
+
+
+Importance of Data Type :
+-------------------------
+
+Storage_Type  Data_Type  initialization_List ; 
+
+int a; //a is a variable of type 'int'
+
+auto int a; 
+
+int p; //p is a variable of type int
+
+int q; //q is a variable of type int
+
+int r; //r is a variable of type int
+
+int p, q, r;
+
+int p=10, q=20, r=30;
+
+
+float f1 = 1.1F;
+float f2;
+float f3 = f1;
+float f4 = 1.1f + f3;
+
+char ch;
+char c = '&' ;
+
+double d1, d2, d3;
+d1 = 1.1;
+d2 = 2.2;
+d3 = d1 + d2;
+
+
+Identifier :
+(a, b, c, sum , no1, no2, cntr, flag, prod, 
+arr, brr, trr
+str, str1, str2
+b1, b2, s1, s2, ..............)
+
+variable , function, pointer-type-variable, array, string, structure, union, enum, ............
+
+int No1; 
+
+
+Rules For Creating an Identifier 
+
+1. Identifier should start with either an underscore(_) OR any alphabet (a-z, A-Z).
+
+2. After starting we can have any combination of (_, a-z, A-Z, 0-9)
+   eg:- _abc123, a876_hg, sum, total, _yash, ____, _, a, b, 
+
+3. No any special symbol like - @, #, %, . , ! {, ..... are allowed
+
+4. No space is allowed
+
+5. It's case sensitive
+   eg:- SUM, sum, Sum, suM can serve as the four different identifiers.
+
+6. It should not match with any of the reserve words (keywords )
+
+7. On some systems the length of the identifier is significant upto first 31 characters.
+   (Old Rule. Now a days professional platforms do not have any such restriction)
+
+Suggestion :- The names starting with _(underscore) are reserved for the library designers.
+
+
+
+Keywords/Reserve words :
+--------------------------
+int for; -----> "for" is a reserve word. You can't use it for your own purpose.
+
+These are the words the meaning of which is already explained to the compiler/'C' execution environment.
+These words we can't use for our own purpose.
+
+(int, float, double, char, signed, unsigned, short, long, auto, static, register, extern, struct, union,
+typedef, enum, for, while, do, break, continue, volatile..............)
+
+
+Q/A) What is platform extactly ?
+Operating System along with the underlying processor defines the PLATFORM.
+
+Size required for creating (reserving it on RAM) a variable of type "char" is 1 byte in C
+
+Q/A) How will you explain 1 byte ? (8 bit)
+The amount of memory required for storing any single character from the machines character set is defined as
+1 Byte (which comes out to be 8 bit )
+
+Q/A) main, printf, ..... are these keywords ?
+
+
+Declarataion and Defination (w.r.t a variable)
+
+int a ; Q/A) Is it a declaration or is it a definatation ? 
+
+
+Definatation by default as well holds the declaration 
+If something (XYZ) is well defined then that something (XYZ) is also assumed to be declared.
+
+But vice-versa is not true necesarily.
+
+If something is specifically declared out then it doesnt mean it's defined as well. 
+
+
+int a ;
+// variable a of type int is defined 
+// variable "a" of type int is declared (correct as well) (Because 'a' is defined)
+
+
+int main(void)
+{
+	int x; //Error:- 
+	int x;
+        -------
+}
+
+
+Q/A) Can I have a variable which is just declared i.e. purely only the declaration of it.
+(i.e. I don't want the defination of it to be involved)
+
+------
+------
+int main(---)
+{
+    extern int a ; //This is variable declaration
+
+    return 0;
+}
+int a = 10; //Here 'a' will represent a global variable
+            //'a' is a variable of data type "int" and is initialized by the value 10
+            //This as well is an example of "variable defination"
+
+
+Rules for creating variables in 'C' (ANSI C)
+
+1. Variable in 'C' should be defined at the "start of the block" (not necesarily it is start of the function main).
+   Block means :- 
+   { 
+    --------
+    --------- 
+   }
+   Note :-  It is observed that VS-2017 is supporting "defining of variable anywhere just before using it" 
+  (Like c++ or java style i.e. not necesarily at the start of the block)
+
+2. The variable in 'C' has to be defined before it's first use. 
+   The defination has to be present only once. But, off course the declaration can appear any no. of times. 
+
+3. In 'C' within the same scope a variable has to be uniquely defined. 
+   Within the same scope we can't have multiple variables defined with the same name.
+
+Note :- Always priority is given to the local variables first and then the global variables.
+
+Q/A) int a = 10, b = a, c = a+b; //Is this valid 
+
+4. In 'C' a variable is supposed to be defined immediately after the name of it (Not necesarily after the seperator
+OR after the semicolon)
+eg:- self initilization i.e. int a = a ; is perfectly valid (Visual Studio 2017 is not supporting it that is Observed)
+
+int a=10, b=20, sum;
+sum = a + b ;
+
+"a+b" itself is an expression. The value of this expression is 30.
+This expressions value is given to the variable sum. So, now the variable sum has to hold the value 30.
+And note it - "sum = a + b" also represents a valid expression. And the value of it as-well is 30.
+Note :- Even individually "a", "b" and "sum" are the valid expressions
+Even 
+sum
+a+b
+10+b
+a+20
+10+20
+sum=a+b
+sum=10+20
+
+All are valid expressions which finally will evaluate to value 30
+
+
+Note :- In C each and every expression holds a value of its own
+What is an expression ( ? ) --> Very soon w'll talk on this
+
+

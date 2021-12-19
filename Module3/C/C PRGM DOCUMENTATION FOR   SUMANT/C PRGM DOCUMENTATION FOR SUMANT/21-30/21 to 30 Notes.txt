@@ -1,0 +1,371 @@
+ The general syntax of an expression in which comma ( , ) acts like an operator is as below -
+
+(expression1), (expression2), (expression3), .......,(expression-n)
+
+1. In this (above general syantax) comma (,) is perfectly acting as the operator.
+2. The expressions has to be executed from LHS to RHS.
+3. The right hand side expression should be executed with all the side-effects of left operand.
+   (It will be clear when u'll go through the code of it)
+4. The value of right most expression is the value of whole expression.
+5. Comma is the operator with least precedance.
+
+Compound assignmnet operators
+-----------------------------
+
++=
+-=
+*=
+/=
+%=
+&=
+^=
+|=
+<<=
+>>=
+
+Note :- In comparison with normal assignment always compound assignment operator works bit faster
+Wherever it is possible to go for compound assignment operation there always 
+try avoiding normal assignment
+
+
+Importance Of Expression w.r.t standard general syntaxes of few elements :-
+
+----------
+----------
+----------
+initialization (Not necesarily it's initialization. It could be assignment as well)
+while( condition )
+{
+   ----------
+   ----------
+   ----------
+   increment / decrement 
+}
+----------
+----------
+----------
+
+
+i = 1;
+while( i<=10 )
+{
+    printf("\n%d", i);
+    ++i;
+}
+
+printf("\n%d", i); //o/p:- 11
+
+
+switch statement in 'C' (Selective Statement)
+
+what is this so called choice ?
+
+
+
+switch(An expression is required which evaluates to an integer value)
+{
+ case label_1 :
+              ---------
+              ---------
+              break;
+case label_2 :
+              ---------
+              ---------
+              break;
+.
+.
+case label_n :
+              ---------
+              ---------
+              break;
+
+default     :
+             ----------
+             ----------
+             break;
+}
+
+
+Functions :
+-------------
+Parameter Passing and 
+returning some value from the function 
+
+Function Call's general syntax is :-
+
+functionName( arguments are to be passed if required and seperated by a comma ) ;
+
+what is meant by "argument" ? 
+Again it's a valid expression.
+
+eg:- add( (a>b)?(a):(b) , !(5==printf("Hello")) );
+
+checkLeapYear( year ) ;
+
+
+"return" statement in C 
+On of the way in which return statement can be constructed 
+-----------------------------------------------------------
+
+storage_class return_type function_name( arg list seperated by a comma )
+{
+ -----------
+ -----------
+ -----------
+ return expression ; 
+
+}
+
+return value/variable/constant value ; --> Fine to some extent but not the exact one
+
+Expression :
+------------
+
+In general an expression is a valid combination of the operands and the operators.
+Not necesarily always you will have some combination (Even a single variable or a single constant
+or even a function call provided the return type is not-void is considered as an expression)
+
+eg:- 
+int a=10, b=20, c=30, d=1, e=0;
+int x, y, z;
+int result;
+
+Examples of few expression 
+
+a + b
+x = a + b
+a - b
+x = ++a
+++a
+++10 //Invalid. Compile Time Error :- L-Value required
+10
+0
+1
+-5
+a
+b
+c
+d
+10+20
+'A' is equivalent to 65 
+sizeof(int)
+sum = sum + rem
+sum += rem
+a > b   (Relational Operators :- <, <=, >, >=)
+c >= d
+a < x
+b <= x
+a == b  (Comparison Operators :- ==, !=)
+c != d
+a && b  (Logicl Operators :- && (AND), || (OR) )
+c || d 
+
+!(expression)  
+
+!a            (Unary NOT ( ! ) :- It turns the result from TRUE to FALSE and Vice -Versa)
+!(a>b)
+!0
+!(a==b)
+
+function calls (provided the return type is not "void")
+
+add(a, b)
+printf("Hello, World")  --> This is also a function call 
+                            You are calling the built in function printf 
+                            The value returned by this b.i.f. printf is substituted at the place 
+                            of the function call
+
+scanf("%d%d%d", &x, &y, &z) 
+
+Rule 1:- In C/C++ every expression holds a value of it's own.
+
+Assignment Operator :- = 
+
+Comparison/Equality Operator :- == (read it as - equal equal to ), != (not equal to)
+
+
+Rule 1:- In C/C++ every expression holds a value of it's own.
+Rule 2:- A quantity identical (exactly) to zero (0) is considered as "FALSE".
+         And any quantity which is non zero (+ve and -ve quantities) is considered as "TRUE"
+
+expression1 == expression2
+
+Firstly understand that "expression1 == expression2" itself is a valid expression.
+If value of expression1 and expression2 is same then, the value of resultant expression is supposed 
+to be TRUE
+If value of expression1 and expression2 is different then, the value of resultant expression is supposed 
+to be FALSE
+
+expression1 != expression2
+
+Firstly understand that "expression1 != expression2" itself is a valid expression.
+If value of expression1 and expression2 is different then, the value of resultant expression is supposed 
+to be TRUE.
+If value of expression1 and expression2 is same then, the value of resultant expression is supposed 
+to be FALSE.
+
+
+
+Rule 1:- In C/C++ each and every expression holds a value of it's own.
+
+Rule 2:- A quantity identical (exactly) to zero (0) is considered as "FALSE".
+         And any quantity which is non zero (+ve and -ve quantities) is considered as "TRUE"
+         Hint :- In discussion of !, &&, || operator this rule will help you out a lot
+
+Rule 3:- An expression involving the use of ==, != (i.e. the comparison operator), 
+         >, >=, <, <=  (Relational Operators), &&, || (Logical Operators)
+         gives the result either as TRUE or FALSE.
+         If the result is TRUE then value of that expression is 1.
+	 If the result is FALSE then value of that expression is 0.
+
+
+Relational Operators :- ( >, >=, <, <= )
+
+"expression1 > expression2"
+
+Very firstly u need to understand that "expression1 > expression2" itself is an expression and 
+will have a value of it's own.
+This value is either TRUE or FALSE.
+if value of expression1 is greater than value of expression2 then value of the resultant expression
+is TRUE else it is FALSE.
+True means 1
+FALSE means 0
+
+Here we have discussed out > operator.
+Rest three i.e >=, < and <= are very similar
+
+
+//I want to check whether 'a' lies between 1 and 20 ( excluding the extremity)
+So, here I need to use the LOGICAL-AND (&&) operator
+
+
+Logical Operators :- &&, ||
+
+
+Logical AND ( && )
+-------------------
+
+(expression1) && (expression2) :- read it as "expression1 AND expression2"
+
+"(expression1) && (expression2)" is also considered as a valid expression. 
+This expression will also have a value of its own.
+This value is either TRUE or FALSE.
+If it's TRUE  then the value of it is 1
+If it's FALSE then the value of it is 0
+
+expression1	expression2	expression1 && expression2
+   T		  T			T
+   T		  F			F
+   F	 	  T			F
+   F		  F			F
+
+Note :- In case of logical AND the resultant expression will evaluate as TRUE if and only if
+        both the expressions are TRUE. 
+        If either of the expression is FALSE then the resulant expression would turn out to be 
+        FALSE
+
+
+Logical OR ( || )
+-------------------
+
+(expression1) || (expression2) :- read it as "expression1 OR expression2"
+
+"(expression1) || (expression2)" is also considered as a valid expression. 
+This expression will also have a value of its own.
+This value is either TRUE or FALSE.
+If it's TRUE  then the value of it is 1
+If it's FALSE then the value of it is 0
+
+expression1	expression2	expression1 || expression2
+   T		  T			T
+   T		  F			T
+   F	 	  T			T
+   F		  F			F
+
+Note :- In case of logical OR even if any one (either) of the expression is TRUE then the resultant 
+        expression will turn out as TRUE.
+        If both the expressions evaluate as FALSE then the resultant expression would be FALSE
+
+
+Hint :- Whenever we have an expression which is internally consisting of few sub expressions.
+        And these sub-expressions if are connected with the AND / OR condition then 
+        In construction of such an expression we require to use Logical AND /
+        Logical OR operators
+
+
+
+int a = *** ; 
+
+if(1 < a  < 20)
+{
+	-----------
+}
+else
+{
+	------------
+}
+
+In above if-else never ever the else block will execute.
+So, you might be u'll also have a warning :- UN-RECHABLE CODE 
+
+//I want to check whether 'a' lies between 1 and 20 ( excluding the extremity)
+So, here I need to use the LOGICAL-AND (&&) operator
+
+So,it means
+1. 'a' should be greater than 1 ----> (a>1)
+and ( There is a compulsion not a option that you are having )
+2. 'a' should be less than 20   -----> (a<20)
+
+
+(a>1) && (a<20)
+
+
+int a = *** ; 
+
+if((a>1) && (a<20))  --> Now it will check whether a lies between 1 and 20
+{
+	-----------
+}
+else
+{
+	------------
+}
+
+Short circuit evaluation
+------------------------
+
+S.C.E is associated in the discussion of Logical-AND (&&) and Logical-OR (||) operator
+
+In case of && the expression is constructed as - 
+(expression1) && (expression2)
+The whole expression evaluates as TRUE if and only if both the expressions are TRUE.
+
+In LHS-->RHS execution if expression1 evaluates as FALSE then, expression2 is not executed
+as the resultant expression is any ways gonna be FALSE.
+
+
+In case of || the expression is constructed as - 
+(expression1) || (expression2)
+The whole expression evaluates as TRUE even if either of the expression is TRUE.
+
+In LHS-->RHS execution if expression1 evaluates as TRUE then, expression2 is not executed
+as the resultant expression is any ways gonna be TRUE.
+
+(Expression1- True) ||  (Expression2 - Will not be executed)
+(Expression1- FALSE) && (Expression2 - Will not be executed)
+
+
+Rule 1:- In C/C++ each and every expression holds a value of it's own.
+
+Rule 2:- A quantity identical (exactly) to zero (0) is considered as "FALSE".
+         And any quantity which is non zero (+ve and -ve quantities) is considered as "TRUE"
+         Hint :- In discussion of !, &&, || operator this rule will help you out a lot
+
+Rule 3:- An expression involving the use of ==, != (i.e. the comparison operator), 
+         >, >=, <, <=  (Relational Operators), &&, || (Logical Operators) and ! (Unary NOT operator)
+         gives the result either as TRUE or FALSE.
+         If the result is TRUE then value of that expression is 1.
+	 If the result is FALSE then value of that expression is 0.
+
+
+

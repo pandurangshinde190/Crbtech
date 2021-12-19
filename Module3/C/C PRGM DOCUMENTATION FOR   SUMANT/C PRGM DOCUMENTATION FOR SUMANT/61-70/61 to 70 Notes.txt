@@ -1,0 +1,2901 @@
+The general syntax of an expression in which comma ( , ) acts like an operator is as below -
+
+(expression1), (expression2), (expression3), .......,(expression-n)
+
+1. In this (above general syantax) comma (,) is perfectly acting as the operator.
+2. The expressions has to be executed from LHS to RHS.
+3. The right hand side expression should be executed with all the side-effects of left operand.
+   (It will be clear when u'll go through the code of it)
+4. The value of right most expression is the value of whole expression.
+5. Comma is the operator with least precedance.
+
+Compound assignmnet operators
+-----------------------------
+
++=
+-=
+*=
+/=
+%=
+&=
+^=
+|=
+<<=
+>>=
+
+Note :- In comparison with normal assignment always compound assignment operator works bit faster
+Wherever it is possible to go for compound assignment operation there always 
+try avoiding normal assignment
+
+
+Importance Of Expression w.r.t standard general syntaxes of few elements :-
+
+----------
+----------
+----------
+initialization
+while( condition )
+{
+   ----------
+   ----------
+   ----------
+   increment / decrement 
+}
+----------
+----------
+----------
+
+
+i = 1;
+while( i<=10 )
+{
+    printf("\n%d", i);
+    ++i;
+}
+
+printf("\n%d", i); //o/p:- 11
+
+
+switch statement in 'C' (Selective Statement)
+
+what is this so called choice ?
+
+
+
+switch(An expression is required which evaluates to an integer value)
+{
+ case label_1 :
+              ---------
+              ---------
+              break;
+case label_2 :
+              ---------
+              ---------
+              break;
+.
+.
+case label_n :
+              ---------
+              ---------
+              break;
+
+default     :
+             ----------
+             ----------
+             break;
+}
+
+
+Functions :
+-------------
+Parameter Passing and 
+returning some value from the function 
+
+Function Call's general syntax is :-
+
+functionName( arguments are to be passed if required and seperated by a comma ) ;
+
+what is meant by "argument" ? 
+Again it's a valid expression.
+
+eg:- add( (a>b)?(a):(b) , !(5==printf("Hello")) );
+
+checkLeapYear( year ) ;
+
+
+"return" statement in C 
+On of the way in which return statement can be constructed 
+-----------------------------------------------------------
+
+storage_class return_type function_name( arg list seperated by a comma )
+{
+ -----------
+ -----------
+ -----------
+ return expression ; 
+
+}
+
+return value/variable/constant value ; --> Fine to some extent but not the exact one
+
+Expression :
+------------
+
+In general an expression is a valid combination of the operands and the operators.
+Not necesarily always you will have some combination (Even a single variable or a single constant
+or even a function call provided the return type is not-void is considered as an expression)
+
+eg:- 
+int a=10, b=20, c=30, d=1, e=0;
+int x, y, z;
+int result;
+
+Examples of few expression 
+
+a + b
+x = a + b
+a - b
+x = ++a
+++a
+++10 //Invalid. Compile Time Error :- L-Value required
+10
+0
+1
+-5
+a
+b
+c
+d
+10+20
+'A' is equivalent to 65 
+sizeof(int)
+sum = sum + rem
+sum += rem
+a > b   (Relational Operators :- <, <=, >, >=)
+c >= d
+a < x
+b <= x
+a == b  (Comparison Operators :- ==, !=)
+c != d
+a && b  (Logicl Operators :- && (AND), || (OR) )
+c || d 
+
+!(expression)  
+
+!a            (Unary NOT ( ! ) :- It turns the result from TRUE to FALSE and Vice -Versa)
+!(a>b)
+!0
+!(a==b)
+
+function calls (provided the return type is not "void")
+
+add(a, b)
+printf("Hello, World")  --> This is also a function call 
+                            You are calling the built in function printf 
+                            The value returned by this b.i.f. printf is substituted at the place 
+                            of the function call
+
+scanf("%d%d%d", &x, &y, &z) 
+
+Rule 1:- In C/C++ every expression holds a value of it's own.
+
+Assignment Operator :- = 
+
+Comparison/Equality Operator :- == (read it as - equal equal to ), != (not equal to)
+
+
+Rule 1:- In C/C++ every expression holds a value of it's own.
+Rule 2:- A quantity identical (exactly) to zero (0) is considered as "FALSE".
+         And any quantity which is non zero (+ve and -ve quantities) is considered as "TRUE"
+
+expression1 == expression2
+
+Firstly understand that "expression1 == expression2" itself is a valid expression.
+If value of expression1 and expression2 is same then, the value of resultant expression is supposed 
+to be TRUE
+If value of expression1 and expression2 is different then, the value of resultant expression is supposed 
+to be FALSE
+
+expression1 != expression2
+
+Firstly understand that "expression1 != expression2" itself is a valid expression.
+If value of expression1 and expression2 is different then, the value of resultant expression is supposed 
+to be TRUE.
+If value of expression1 and expression2 is same then, the value of resultant expression is supposed 
+to be FALSE.
+
+
+
+Rule 1:- In C/C++ each and every expression holds a value of it's own.
+
+Rule 2:- A quantity identical (exactly) to zero (0) is considered as "FALSE".
+         And any quantity which is non zero (+ve and -ve quantities) is considered as "TRUE"
+         Hint :- In discussion of !, &&, || operator this rule will help you out a lot
+
+Rule 3:- An expression involving the use of ==, != (i.e. the comparison operator), 
+         >, >=, <, <=  (Relational Operators), &&, || (Logical Operators)
+         gives the result either as TRUE or FALSE.
+         If the result is TRUE then value of that expression is 1.
+	 If the result is FALSE then value of that expression is 0.
+
+
+Relational Operators :- ( >, >=, <, <= )
+
+"expression1 > expression2"
+
+Very firstly u need to understand that "expression1 > expression2" itself is an expression and 
+will have a value of it's own.
+This value is either TRUE or FALSE.
+if value of expression1 is greater than value of expression2 then value of the resultant expression
+is TRUE else it is FALSE.
+True means 1
+FALSE means 0
+
+Here we have discussed out > operator.
+Rest three i.e >=, < and <= are very similar
+
+
+//I want to check whether 'a' lies between 1 and 20 ( excluding the extremity)
+So, here I need to use the LOGICAL-AND (&&) operator
+
+
+Logical Operators :- &&, ||
+
+
+Logical AND ( && )
+-------------------
+
+(expression1) && (expression2) :- read it as "expression1 AND expression2"
+
+"(expression1) && (expression2)" is also considered as a valid expression. 
+This expression will also have a value of its own.
+This value is either TRUE or FALSE.
+If it's TRUE  then the value of it is 1
+If it's FALSE then the value of it is 0
+
+expression1	expression2	expression1 && expression2
+   T		  T			T
+   T		  F			F
+   F	 	  T			F
+   F		  F			F
+
+Note :- In case of logical AND the resultant expression will evaluate as TRUE if and only if
+        both the expressions are TRUE. 
+        If either of the expression is FALSE then the resulant expression would turn out to be 
+        FALSE
+
+
+Logical OR ( || )
+-------------------
+
+(expression1) || (expression2) :- read it as "expression1 OR expression2"
+
+"(expression1) || (expression2)" is also considered as a valid expression. 
+This expression will also have a value of its own.
+This value is either TRUE or FALSE.
+If it's TRUE  then the value of it is 1
+If it's FALSE then the value of it is 0
+
+expression1	expression2	expression1 || expression2
+   T		  T			T
+   T		  F			T
+   F	 	  T			T
+   F		  F			F
+
+Note :- In case of logical OR even if any one (either) of the expression is TRUE then the resultant 
+        expression will turn out as TRUE.
+        If both the expressions evaluate as FALSE then the resultant expression would be FALSE
+
+
+Hint :- Whenever we have an expression which is internally consisting of few sub expressions.
+        And these sub-expressions if are connected with the AND / OR condition then 
+        In construction of such an expression we require to use Logical AND /
+        Logical OR operators
+
+
+
+int a = *** ; 
+
+if(1 < a  < 20)
+{
+	-----------
+}
+else
+{
+	------------
+}
+
+In above if-else never ever the else block will execute.
+So, you might be u'll also have a warning :- UN-RECHABLE CODE 
+
+//I want to check whether 'a' lies between 1 and 20 ( excluding the extremity)
+So, here I need to use the LOGICAL-AND (&&) operator
+
+So,it means
+1. 'a' should be greater than 1 ----> (a>1)
+and ( There is a compulsion not a option that you are having )
+2. 'a' should be less than 20   -----> (a<20)
+
+
+(a>1) && (a<20)
+
+
+int a = *** ; 
+
+if((a>1) && (a<20))  --> Now it will check whether a lies between 1 and 20
+{
+	-----------
+}
+else
+{
+	------------
+}
+
+Short circuit evaluation
+------------------------
+
+S.C.E is associated in the discussion of Logical-AND (&&) and Logical-OR (||) operator
+
+In case of && the expression is constructed as - 
+(expression1) && (expression2)
+The whole expression evaluates as TRUE if and only if both the expressions are TRUE.
+
+In LHS-->RHS execution if expression1 evaluates as FALSE then, expression2 is not executed
+as the resultant expression is any ways gonna be FALSE.
+
+
+In case of || the expression is constructed as - 
+(expression1) || (expression2)
+The whole expression evaluates as TRUE even if either of the expression is TRUE.
+
+In LHS-->RHS execution if expression1 evaluates as TRUE then, expression2 is not executed
+as the resultant expression is any ways gonna be TRUE.
+
+(Expression1- True) ||  (Expression2 - Will not be executed)
+(Expression1- FALSE) && (Expression2 - Will not be executed)
+
+
+Rule 1:- In C/C++ each and every expression holds a value of it's own.
+
+Rule 2:- A quantity identical (exactly) to zero (0) is considered as "FALSE".
+         And any quantity which is non zero (+ve and -ve quantities) is considered as "TRUE"
+         Hint :- In discussion of !, &&, || operator this rule will help you out a lot
+
+Rule 3:- An expression involving the use of ==, != (i.e. the comparison operator), 
+         >, >=, <, <=  (Relational Operators), &&, || (Logical Operators) and ! (Unary NOT operator)
+         gives the result either as TRUE or FALSE.
+         If the result is TRUE then value of that expression is 1.
+	 If the result is FALSE then value of that expression is 0.
+
+
+
+Unary NOT Operator ( ! )
+Note :- At some cases (few textbooks/ references) it's also refered as Logical Not Operator
+--------------------------------------------------------------------------------------------
+
+! is a unary operator.
+It has to be applied on the LHS of the operand.
+operand precisely mean - "an expression"
+
+So, the general syntax of getting an expression created with ! operating as a operator is :-
+!expression
+
+suggested to have () for the expression just for readabilty purpose
+!(expression) //wise and a good programming practice
+
+"!(expression)" :- Is firstly a valid expression. 
+As such it will also have a value of its own.
+This value again would be either 0 or 1.
+
+So, the rule to be remembered is -
+!(True) is  False
+!(False) is True
+
+A quantity identical (exactly) to zero (0) is considered as "FALSE".
+And any quantity which is non zero (+ve and -ve quantities) is considered as "TRUE" 
+
+Even we can apply the operator as many times as we want 
+
+eg:- 
+
+!!(True) //Read it as Not of Not of True 
+
+As it's a unary operator the associativity is from RHS to LHS So,
+
+!FALSE
+True
+
+Conditional/Ternary Operator :-
+--------------------------------
+
+The operator symbol for conditional operator is ?: 
+The nature of it is -"ternary" i.e. it's arity is 3.
+The associativity of this operator is as well LHS to RHS (*****)
+
+The general syntax of using this operator in creation of an expression is as below - 
+
+expression1 ? expression2 : expression3 
+
+(expression1) ? (expression2) : (expression3) 
+
+Note that this complete stuff "(expression1) ? (expression2) : (expression3)"
+that you have created itself is a valid expression.
+
+   Here expression1 is first executed. Value of expression1 is to be considered. 
+   If expression-1's value is TRUE then - expression-2 is executed and value of expression-2 
+   is supposed to be the value of whole i.e. complete expression.
+   If expression-1's value is FALSE then - expression-3 is executed and value of expression-3 
+   is supposed to be the value of whole i.e. complete expression.
+
+
+int a=10, b=20, c=30;
+int Result;
+
+Result = (a!=20) ? (expression-2) : (a+b+c)  ; 
+printf("\nValue of Result is %d ", Result);   //o/p:- 60
+
+
+something about printf
+----------------------
+
+1. printf is a built-in-function
+2. It's declared in the header file stdio.h (Note :- It's not defined in stdio.h)
+
+Note :- Standard built-in header files do not contain the definations of the functions. 
+        It contains the declaration only.
+        Defination is present inside the .lib (DOT LIB) folder
+
+3. return-type of the b.i.f printf is "int". It returns the total number of arguments printed
+   successfully on to the console.
+4. Because of this a call to the b.i.f printf is also considered as a valid expression.
+   Because at the place of function call the return value is substituted
+
+
+eg:- 
+
+int a = printf("Yash");
+printf("%d", a);
+
+output :- Yash4
+
+
+
+Nesting of conditional operator 
+--------------------------------
+
+Nothing new in this to discuss out
+The general synatx of expression in which conditional operator operates is - 
+(expression1) ? (expression2) : (expression3) 
+
+Here in place of any of these expression's (expr-1 or expr-2 or expr-3)
+we can have an expression which again is involving the use of conditional operator.
+
+Note :- This nesting can go upto any level. Just stick to the basic fundamental principle for
+it's execution.
+
+
+Swapping of two integers  (In possible different ways)
+-------------------------------------------------------
+
+Q/A). Please perform swapping of two integers just by using a single statement.
+
+int a=10, b=20;
+
+----------------- ;
+
+printf("\n%d  %d", a, b ); //o/p is expected as :- 20 10 
+
+Statement:
+-----------
+
+"Statement" is nothing but it truly represents some instruction/order for the computer.
+Generally when an expression is terminated with a semicolon that turns out to be an example of statement.
+
+eg:- sum = a + b ----> This is an expression
+     sum = a + b ; ----> This is a statement
+
+We say that semicolon (;) is the statement terminator.
+
+
+Types of statements in 'C'
+
+I) Decision Making Statement
+
+- if (simple if)
+- if - else
+- nesting of if-else (nested if else) --> Just a concept i.e it's 
+                                          just an extension to what u have studied
+
+II) Selective Statement
+
+- switch
+
+III) Iterative Statement (Loops)
+
+- for 
+- while
+- do while 
+
+IV) Branching Statement
+
+- break
+- continue
+- goto 
+
+eg:- below mentioned "if" is purely representing a statement.
+It's representing an instruction to the computer/machine
+But note - it's not terminated with a semicolon 
+
+Note :- Not necesarily each and every statement is terminated with semicolon always.
+
+if(a>b)
+{
+ ------
+ ------
+}
+
+I) Decision Making Statement 
+
+a. if (simple if)
+
+If it rains then I will be carring my rainwear with me.
+
+The general syntax of writting a simple if - 
+
+int a = 5;
+-----------
+-----------
+-----------
+if( expression )
+{
+  ------------
+  statement/t's
+  ------------
+}
+-----------
+-----------
+-----------
+
+1. All the statements which are placed above if will be executed sequentially as per the top-bottom
+principle
+
+2. Firstly expression is compulsory in the round brackets of if.
+
+3. The expression written in the round brackets of if is completely executed.
+As studied earlier - this expression will also have a value of it's own.
+If the value is identical to zero then it's considered as FALSE
+If the value is non-zero (+ve or -ve) then it's considered as TRUE
+
+4. If expression evaluates as TRUE then the block of if is executed.
+If expression evaluates as FALSE then the block of if is not executed.
+Note :- In case of "simple if" you have control over just a single set/single block of code
+
+5. The statements which are written outside the block of if (i.e. below the end of block of it)
+will anyways be executed. i.e. irresepective of the expressions value as TRUE or FALSE
+It has to execute.
+
+6. In case there is a single/unique/"one and only one" statement associated with the block of if.
+Then the block is optional.
+If you observe a "simple if" without any block to it ( {---}) then, 
+the immediate single statement written below if should be considered as if inside the body of it.
+
+if(a>b)
+{
+ printf("\na is greater than b");
+}
+
+The above if could be written as - 
+
+if(a>b)
+printf("\na is greater than b");
+
+one more example
+
+int a = 10, b= 5;
+
+if(a<b)
+   printf("Yash");
+   printf("Yash");  //From this point the statemet's are supposed to be out side the block of if.
+   printf("Yash");
+
+printf("Shweta");
+
+
+if(a<b)
+{
+   printf("Yash");
+}
+   printf("Yash");
+   printf("Yash");
+
+printf("Shweta");
+
+o/p:- YashYashShweta
+
+7. In the source code we are free to use as many if statements as we want.
+
+
+b. if - else
+-------------
+
+-----------
+-----------
+-----------
+if(expression)
+{
+ ---------
+ Statement/t's
+ ---------
+}
+else
+{
+ ---------
+ statement/t's
+ ---------
+}
+-----------
+-----------
+-----------
+
+
+1. Firstly all the statements written above if will be executed top to bottom sequentially as per the 
+principle
+
+2. The expression in the round brackets of if is again mandatory
+
+3. The expression is completely executed. After complete execution of the expression based upon the 
+value of the expression we decide whether it's TRUE or FALSE.
+If expression value comes out identical to zero - FALSE
+If expression value comes out non zero (+ve or -ve) - TRUE
+
+4. If expression's value is TRUE then the block of if is executed and the block of else is not executed.
+If expression's value is FALSE then the block of if is not executed but, block of else is executed.
+
+5. In case of if-else either if OR else block executes (Based on the value of the expression). 
+Execution of both the blocks at same instance of time is an impossible task 
+
+6. The code which is written outside the "else" will any ways be executed sequentially following 
+the top-bottom principle.
+
+7. In case of "simple if" we have a single block/set of code. And we simply decide whether to execute 
+that block or not. That means we gain control over a single block of code.
+In case of "if-else" we truly have 2 blocks/set's of code i.e. if block and the else block. 
+So, out of these two blocks we decide which one to execute and which one not to execute 
+(skip the execution).
+We are gaining control over two different blocks/set of code. 
+
+8. "else" is always associated with if. 
+Above else immediately you will be having "if".
+"if" can exisist indipendantly (like we saw in case of simple if)
+"else" can't execute independantly. 
+After closing of if and before starting of else we can't have any statement placed.
+we can't seperate else from if.
+
+9. In case of if-else as well - 
+If there is a single statement associated with the "block of if" OR "block of else".
+Then here as well the block is optional. You are free to skip it.
+
+In other words - If you observe an if-else without any block associated with it (if / else/ both)
+then, the immediate single statement falling below the block should be considered as if inside the 
+body of it.
+
+
+Suggestion :- Never skip the block. Let it be present. It increases the readability of the code.
+
+10. Again like "simple if" you are free to use as many "if-else" statement's as you want in your code.
+Even nesting of it is allowed (nested if-else)
+
+
+int a = 10, b=20;
+
+
+if(0)
+{
+   printf("a is greater");
+}
+else
+{
+   printf("b is greater");
+}
+
+Same can be written as - 
+
+if(0)
+ printf("a is greater");
+else
+ printf("b is greater");
+
+Let's try this now :
+
+int a = 10, b=20;
+
+if(a!=b)
+  printf("a is greater");
+  printf("\na is greater");
+else
+  printf("b is greater");
+  printf("\nb is greater");
+
+printf("Out of if-else");
+
+
+if(a!=b)
+{
+  printf("a is greater");
+}
+  printf("\na is greater");  //--> This is not a part in the body of "if"
+
+else                         //--> The else is totally seperated from "if"
+  printf("b is greater");
+  printf("\nb is greater");
+
+printf("Out of if-else");
+
+CTE :- misplaced else / else without if
+
+
+c. Nesting of if-else (Nested if - else)
+----------------------------------------
+
+if(expression)
+{
+   if(expression)
+   {
+    --------
+   }
+   else
+   {
+    --------
+   }
+}
+
+
+if(expression)
+{
+   if(expression)
+   {
+    --------
+   }
+   else
+   {
+    --------
+   }
+}
+else
+{
+   if(expression)
+   {
+    --------
+   }
+   else
+   {
+    --------
+   }
+}
+
+In case of simple if 
+OR
+In case of if-else
+We are allowed to place/write simple if / if-else inside any of the mentioned block. 
+This is what term it as - nesting of if-else.
+
+This nesting can go upto any level.
+Too much of nesting should be avoided as it reduces the readability. Even the code starts travesing
+towards the right most bottom of the screen as we are maintining the indentation.
+The basic working principle remains the same 
+
+Note :- if-else VS Conditional Operator
+
+A statement constructed with the help of ?: can be replaced with if-else as well. This is 100% true.
+But, vice-versa is not necesarily true. 
+Not necesarily each and every if-else is able to be substituted by ?:
+
+Q/A). Which sort of if-else can be substituted by ?: 
+Ans:- Home work
+
+II) Selective Statement 
+------------------------
+
+a). switch 
+
+switch is simply a "statement" available for use in the P.L.
+It serves as an example for "selective statement"
+
+The general syntax of writting a switch statement is as below - 
+
+-----
+-----
+switch( expression )
+{
+case label-1 :       --------
+                     --------
+                     break;
+case label-2 :       --------
+                     --------
+                     break;
+.
+.
+.
+case label-n :       --------
+                     --------
+                     break;
+default      :       --------
+                     --------
+                     break;
+}
+-----
+-----
+
+1. All the statements above switch will be executed sequentially following the top-bottom principle
+
+2. The expression for the () of switch is mandatory. This expression is completely executed.
+   Note :- The expression should evaluate to an integer type quantity. Character constants are 
+   internally represented in the form of ASCII value which is integer type quantity as well.
+   So even this is fine.
+
+3. After executing the expression the control is supposed to enter into the body of switch along with 
+   this value of the expression.
+   Whichever label with which the expressions value matches - there then, the coresponding set of 
+   code is executed sequentially. 
+   In this sequential execution the "break;" statement which is generally written at the last also
+   gets executed as a result of which the execution of switch is terminated and the control comes 
+   out of the switch to execute the rest of the statements.
+   
+   Ideally "break;" is expected for each and every set of code w.r.t each and every case.
+   The purpose of "break;" is to terminate the execution of switch statement when required.
+   If "break;" is not found then the execution goes on and on until either "some break is found"
+   OR "switch ends". This is called as "FALL-THROUGH in switch"
+
+
+4. The "Label" can't be repeated. It should be unique.
+   The "Label" has to be a "constant-integer-expression" (An expression which is involving only
+   the constants and which is finally evalauting to an integer value). No variable is allowed 
+   in place of label in any term.
+   Character constants (i.e. enclosed inside single quote) can also serve as the label 
+
+
+5. The cases can be written in any any order. 
+   Even we are free to write the "default" at the start itself.
+   "case"/"break"/"default"/"switch" these are just the keywords present in C.
+
+6. "default" handles every case which remain unhandeled.
+    Note :- "default" is optional. If you wish then feel free to skip it as well.
+    We can observe "default" written at the last and still a "break;" associated with it.
+    This is just to avoid the switch from entering into "fall-through" - in case few more cases
+    are added later on below the default. 
+
+
+if(expression)
+{
+   -------
+   -------
+   -------
+   -------
+   if(expression)
+   {
+     --------
+     --------
+   }
+}
+else
+{
+   -----------
+   -----------
+   -----------
+   if(expression)
+   {
+    --------
+    --------
+   }
+   else
+   {
+    --------
+    --------
+   }
+}
+
+
+"exit"
+-------
+
+exit is nothing but it's a built-in function.
+It's declared inside the header file "stdlib.h". So, if you are using/calling the exit function 
+then, ideally you should include the header file "stdlib.h" in your source code.
+The declaration of "exit" function is as below - 
+
+void exit(int status) ; 
+
+This function terminates the execution of the program.
+eg:- exit(1);
+     exit(5);
+     exit(10);
+     exit(17);
+     exit(0);
+
+So, in all the above cases the working of exit function would be exactly the same.
+In all the cases as discussed it will terminate the program execution.
+
+The integer value that we pass as an argument to exit function just represents the status i.e.
+it represents the total no. of problems/issues because of which we are terminating the code.
+It is just a convention / standard practice
+
+Usually you will observe "exit(1);"
+
+"exit(0);" ---> It represents normal termination i.e. without any issue/problem.
+
+System.exit(1); ---> Do it in Java
+
+
+In case of nested if-else :-
+
+If possible this should be avoided.
+It makes the task a bit complex. It decreases the readabiltiy of the code.
+The code starts travelling towards the right bottom of the screen ( bcz of the indentation )
+Upto 1/2 level's it's fine.
+
+
+simple if - terminated with a semicolon 
+----------------------------------------
+
+if( expression );
+{
+   --------
+   --------
+   --------
+}
+
+semicolon is the "statement terminator" in C Programming Language.
+eg:- If you observe a simple if which is terminated ahead with a semicolon then the meaning of it is - 
+
+1. It's an if without any body/statement associated with it. 
+2. If you observe any block below such an if then, just consider it as an arbitary block of code.
+   It's not the block of if. (Block of if is not into existance)
+3. On a safer note - such a simple if can be considered as an if with empty body (Technically Incorrect)
+
+
+
+
+if-else - In which the if / else is terminated with a semicolon 
+----------------------------------------------------------------
+
+
+Try-Out
+
+if (a == 10)
+	printf("\ni am in if ");
+	printf("\ni am in if ");
+	printf("\ni am in if ");
+else
+	printf("\ni am in else");
+	printf("\ni am in else");
+	printf("\ni am in else");
+
+if (a == 10)
+{
+	printf("\ni am in if ");
+}
+	printf("\ni am in if ");
+	printf("\ni am in if ");
+else
+	printf("\ni am in else");
+	printf("\ni am in else");
+	printf("\ni am in else");
+	
+
+In case of if-else in which the if is terminated with a semicolon. 
+If there is at least a statement written/placed/coded below if then this has to give you an error.
+
+eg:- 
+if (b == 20);
+	 printf("\nI am in if block");
+    else
+	 printf("\nI am in else block");
+
+Error :- Illegal else without a matching if. 
+
+
+Q/A). Can you write an if-else in which the if would be terminated with a semicolon. 
+      But, there should not be any compile time error.
+
+Ans :- Yes!!!! It is possible. 
+       In this case we should not have any single statement written/coded below if. 
+       Directly below if we should have the else part
+
+eg:- if (expression);
+     else
+     {
+       -------------
+       -------------
+     }
+
+
+else terminated with a semicolon in case of if-else
+
+eg:- 
+
+if (b == 20)
+	{
+		printf("\nI am in if block");
+	}
+	else;
+	{
+		printf("\nI am in else block");
+	}
+
+
+In this case as well -
+1. Consider else without any body/statement associated with it.
+2. The block of code / statement which you observe below else should be considered just
+   as the normal arbitary set of statement's which will be executed sequentially. 
+
+Q/A) What is the minimal way in which we can write just a single pair of if-else
+
+if (expression);
+else;
+
+
+switch terminated with a semicolon
+-----------------------------------
+
+Just like we saw - 
+1. simple if terminated with ;
+2. if and else terminated with ; in case of (if-else)
+
+we can even have a switch which is terminated with a semicolon.
+Syntatically this is allowed and fine.
+If you do so - then it's considered as a switch without any body to it.
+And the block that if you observe below switch - is just a arbitary block of code. It should not
+be considered as the block of switch.
+
+
+Something more about switch 
+-----------------------------
+
+1. Considrering the opening bracket of switch as a opening of a block we are allowed to define
+   a variable over there.
+
+eg:-
+
+switch (2)
+	{
+		int a=10;
+            
+
+switch (2)
+	{
+		int a;
+
+
+2. Note that :- switch is actually not for defining the variables. 
+   Any variable defined as per point no-1 just seems to be defined. Truly speaking no such variable 
+   is created. If you try to access it then you will get a Compile Time Error
+
+eg:-
+
+switch (2)
+	{
+		int a=10;
+	case 1:  printf("\nI am for case-1");
+		break;
+	
+	case 2:  printf("\nI am for case-2. Value of a is %d ", a);
+		break;
+
+	default: printf("\nInvalid Choice");
+		break;
+	}
+
+C.T.E :- Un-initialized local variable 'a' used 
+
+3. A variable can be defined in execution of those statements which are associated with some 
+particular case. This is allowed and works fine. (Tested on VS 2010)
+
+eg:- 
+
+switch (2)
+	{
+	case 1:  printf("\nI am for case-1");
+		break;
+	
+	case 2:   int a = 10;
+		       printf("\nI am for case-2. Value of a is %d ", a);
+		break;
+
+	default: printf("\nInvalid Choice");
+		break;
+	} 
+
+
+
+
+III) Itterative Statement (Loops)
+---------------------------------
+
+Iterative statement will help us in performing something which is termed as - "an iteration".
+Iteration means to perform some similar task again and again (It could be for some decided no. of times
+OR at times we even require to go for infinite time i.e. where the total no. of repeations are not 
+known)
+
+a) for 
+-------
+The general syantax of writting a for loop is as below - 
+
+-----------
+-----------
+for(expression-1 ; expression-2 ; expression-3)
+{
+  --------
+  --------
+  --------
+}
+------------
+------------
+
+1. "for" is simply a keyword in 'C'. It represents one of the iterative statement (i.e. for loop)
+
+2. All the statements above the for loop will execute sequentially i.e. following the top-bottom 
+   approach as per the principle
+
+3. In execution of "for" expression-1 is firstly executed. 
+   Note :- expr-1 is executed only once in case of "for" and that is at the START.
+
+4. After that the control comes on to expression-2 and executes it completely as well.
+
+   If expr-2 evaluates as TRUE then, the control goes into the body of for and executes all the
+   statements sequentially.
+   Then, the control moves to execute expression-3 and gets it executed.
+   After executing expr-3 the control comes to expression-2. Once again get's it executed.
+   If it is TRUE -------> again the same process is repeated  [ Iteration ] 
+   
+   If expr-2 evaluates as FALSE then, the control is not going to enter into the body of loop.
+   Rather, the control will move out of the loop to execute the rest of the statement's in sequence.
+   This is what we say as - "The execution of the loop is terminated"
+
+5. for-loop terminates - 
+   a. Because of expression-2 evaluating as FALSE.
+   b. we can use "break;" statement and get the loop terminated explicitely.
+
+6. "for" is an example of "pre-tested-loop". 
+    The minimum no. of times for loop can execute is zero. 
+
+7. Like simple-if and if-else. In case of for as well - If there is a single statement associated with 
+   it's body then the {} are optional. You are free to skip it.
+   In other words if you observe a for-loop without any {} associated with it. Then, the immediate
+   single statement written below that for should be considered as if inside the body of it.
+
+for (i = 1; i <= 100 ; ++i)
+{
+	printf("\n%d", i);
+}
+
+printf("\n%d", i);
+printf("\n%d", i);
+
+o/p :- 1  2  3 ..   99  100  101  101 
+
+
+Few More Inputs about For
+---------------------------
+
+1. expression-1 in case of "for" is optional (Offcourse ; has to be there).
+Whatever we are about to do in the place of expression-1 can be done anywhere before entering into 
+the body of the loop.
+
+2. expression-3 in case of "for" is also optional (Offcourse ; has to be there).
+After executing the core-body and before going on to the expression-2 we can get the 
+increment/decrement happen. It would be in the place of expression-3 OR we can do it - 
+in the body of for at the last.
+
+what about expression-2 (condition) ? Is it optional as well !!! ?
+
+3. Even expression-2 in case of "for" is optional. 
+In case expression-2/condition is missing in case of "for" then it should be assumed as TRUE.
+
+Note :- expression-2/condition is optional in case of "for"
+        It is mandatory in case of "while" and "do-while" 
+
+
+b) while 
+---------
+
+---------
+---------
+expression-1
+for(  ; expression-2 ;  )
+{
+ -------
+ -------
+ -------
+ expression-3
+}
+---------
+---------
+
+
+The general syntax for writting "while-loop" is as below - 
+
+---------
+---------
+expression-1
+while(expression-2)
+{
+ -------
+ -------
+ -------
+ expression-3
+}
+---------
+---------
+
+1. Here as well all the statements written above "while" will be executed sequentially one after 
+the other following the top-bottom approach. In which the "expression-1" is completely executed.
+
+2. expression-2 is mandatory for the () of while. The control executes this expression-2.
+   a. If expr-2 evaluates as TRUE - then the body of the loop is executed in which the expression-3
+   which is written as the last statement (inside the body) also gets executed.
+   After executing "expression-3" the control again moves on to the expression-2. Again expression-2 
+   is executed. If it is TRUE then again body is executed and after body again control will move to
+   execute expression-2. This is what we term it as - "iteration". It will continue as long as - 
+   expression-2 is evaluating as TRUE
+
+   b. If expr-2 evaluates as FALSE - then the control is not going to enter into the body of the loop.
+   Here the execution of loop is supposed to be terminated.
+
+   Note :- Value identical to zero in any form is considered as FALSE. And non-zero quantity
+           is considered as TRUE.
+   
+3. Once the loop-terminates then the control goes to execute the rest of the statements which are 
+   written below the while loop.
+
+4. Like simple-if , if-else, for . Here as well - in case there is a single statement associated with
+   the body of while then the {} is optional.
+   In other words - if you observe a while without any {} associated with it. Then, the immediate 
+   single statement written below while should be considered as if inside the body of it.
+   Note :- We can happily have a while loop consisting of a unique statement as in the body of it.
+
+5. while serves as an example of - "pre-tested-loop".
+   i.e. the minimum no. of times a while loop can iterate is - zero
+   (If expression-2 turns out FALSE at the very first time)
+
+6. "while-loop" terminates 
+    a. Because of expression-2 evaluating as FALSE.
+    b. We can explicitely get the loop terminated with the use of "break;" statement.
+
+7.  expression-3 which we generally code as the last statement in the body of while is 
+    off course not mandatory. Whatsoever body we have that body will be executed (provided
+    expr-2 is evaluated as TRUE)
+
+
+TryOuts
+--------
+i = 1;
+	
+while (i <= 100)
+{
+	printf("\n%d", i);
+}
+++i; //This statement will fall out of the body of while 
+     //Warning :- Unrechable code 
+
+o/p:- 1
+      1
+      1
+      .
+      .
+
+
+
+while(1)
+{
+  -------
+  -------
+  -------
+}
+
+1. The above loop has integer-1 placed in the position of expression-2 i.e. condition.
+   1 is a non-zero quantity as such it's considered as TRUE. 
+
+2. Because of this - such a loop will go for infinite iteration. 
+   Such a loop will not terminate because of "expression-2" evaluating as FALSE.
+   If we wan't to terminate such a loop then we have to explicitely make use of the "break;"
+   statement from the body of the loop.
+
+3. In the round brackets of while we generally write integer 1 w.r.t the standard over it.
+   But, instead of 1 feel free to write any any non-zero quantity. It will have the same
+   effect w.r.t the execution.
+
+
+
+c) do-while
+------------ 
+
+The general syntax of writting a "do-while" loop is as below - 
+
+----------
+----------
+----------
+expression-1
+do
+{
+   ----------
+   ----------
+   ----------
+   ----------
+   expression-3
+}while(expression-2);
+---------
+---------
+---------
+
+1. Here as well all the statements written above "do" will be executed sequentially in which the 
+expression-1 is also executed.
+expression-1 not necesarily should be written immediately above "do". We can write it any where 
+above do as we wish.
+
+2. Then the control directly enters into the body of the do (No condition/ No TRUE/ No FALSE criteria)
+and executes the body sequentially. In which "expression-3" is also executed.
+"expression-3" is generally written as the last statement in the body of "do".
+
+3. After executing the body for the very first time then move on to the "expression-2" written in the 
+() of while. Execute the expr-2 completely. 
+a. If it is TRUE then again execute the body. Then again execute expression-2. If again it's TRUE 
+then again execute the body ---------this goes on and on untill expression-2 evaluates as FALSE
+(Iteration)
+b. If expression-2 evaluates as FALSE then the execution of loop is supposed to be terminated and the
+control moves out of the loop to execute the rest of the statements in sequence.
+
+4. "do-while" serves as an example of "post-tested-loop". The minimum no. of times a do-while 
+can execute is 1.
+
+5. The expression-2 i.e. the so called condition for the () of while is mandatory. Like for it's not
+optional in case of do-while
+
+6. In case of "for" and "while" we can write the loop without {}. In such a case the immediate single
+statement written below the loop is considered to be inside the body of it. 
+This is not a Compile Time Error
+
+Unlike this in case of do-while - if there are mutiple statements associated with the body then {}
+is mandatory. We can't skip it. Any attempt done towards this will give you a compile time error.
+
+7. In case there is a single statement associated with the body of while. Then here as well we are free
+to skip the {}.
+
+8. do-while loop as well terminates because of "expression-2" evaluating as FALSE.
+   OR
+   It can be explicitely terminated from the body itself by using a "break;" statement 
+
+
+Nesting of Loops
+-----------------
+
+1. Nesting of loops is very similar with the nesting of if-else
+
+2. Inside the body of any loop (for, while or do-while) we are actually allowed to write/code
+   any other loop (for, while or do-while).
+   The inner loop is supposed to be nested within the out-loop
+
+3. The nesting can actually go upto any level.
+   But too much of nesting should be avoided - it decreases the readability and makes the task complex
+   to understand and dry run.
+
+4. For every iteration of the outer-loop the inner-loop is supposed to execute completely.
+   If the outer loop iterates for 3 times and 
+   If the inner loop iterates for 3 times then the total number of iterations are - "3*3 = 9"
+
+   
+"break" statement
+------------------
+
+The general synatx of using "break" statement is as below-
+break ;
+
+As of now we observed "break;" statement for the very first time in case of "switch"
+eg:-
+ switch( choice )
+ {
+  case 1 : ------
+           ------
+           break;
+  .
+  .
+}
+There becuase of execution of the break statement - the execution of switch is supposed to be terminated.
+And the control comes out of the switch to execute the rest of the statements
+
+"break" statement can even be placed inside any loop. If such a break statement gets executed
+then the execution of that loop is terminated and the control comes out of the loop to execute the 
+rest of the statements.
+
+Consider we have nesting of loops -
+i.e. we have a outer loop and in which we have a inner loop.
+Assume that "break;" statement is present inside the body of inner loop.
+Then, due to execution of such a break statement the "inner loop" will terminate.
+It's applicable only for the "inner-loop".
+In case you want to terminate the outer loop as well explicitely then - we need to use "break;"
+one more time for the outer loop explicitely.
+
+
+"continue" statement
+--------------------
+
+The general syntax of writting "continue" statement is as below - 
+continue ;
+
+The statement "continue;" can be used only inside some loop (not in case of switch)
+
+If the continue staetment written inside some loop executes then as a result of it - 
+The control moves to take the next iteration
+i.e. The set of code which is falling below the continue and which is inside the loop is skipped 
+for that particular iteration.
+
+Consider we have nesting of loops -
+i.e. we have a outer loop and in which we have a inner loop.
+Assume that "continue;" statement is present inside the body of inner loop.
+Then, due to execution of such a "continue" statement the control will move to take the next iteration
+of the inner loop.
+It's applicable only for the "inner-loop".
+In case we want to use it seperately for the outer loop then we need to specify it explicitely 
+for the outer loop as well.
+
+
+In case of loop :- 
+
+1. Wherever the concept of "iteration" is there - there we are free to make use of any loop of 
+our choice
+
+2. Any task which you can do using "for" can alternatively be done by "while" or "do-while"
+   Any task which you can do using "while" can alternatively be done by "for" or "do-while"
+   Any task which you can do using "do-while" can alternatively be done by "for" or "while"
+
+It is just a matter of choice.
+
+Q/A). What is the basic difference between "for" and "while" ?
+      When should I use "for" and when should I go for "while" ?
+
+Ans :- "for" is generally used for iteration over known no. of times.
+       "while" is generally used for some undefined no. of iterations.
+
+
+Note :- A variable in 'C' ideally has to be defined at the start of a block (Not necesarily it should 
+be a start of main).
+It could be a start of any of these below blocks - 
+1. arbitary block
+2. block of for/while/do-while
+3. block of if / else
+4. block of any user defined function
+
+A variable defined in a particular block is alive only within that block. 
+After complete execution of that block (In which it is defined) the variable is no more alive.
+Any attempt done to access it - will give you a "compile time error"
+
+
+TryOut
+------
+
+int a = 10;
+
+if(a==10)
+{
+    printf("\nLove You");
+    printf("\nLove You");
+    break;
+    printf("\nLove You");
+    printf("\nLove You");
+}
+
+---------------------------------
+
+if(a!=10)
+{
+   
+}
+else
+{
+   break;
+   printf("\nHate You");
+   printf("\nHate You");
+   printf("\nHate You");
+   printf("\nHate You");
+}
+
+
+"break" statement can't be used for - independant if / if-else.
+It is not used for terminating the if/else.
+Any attempt done to do so will lead to a compile time error -"illegal break"
+break  is used only inside a loop / switch .
+
+Similarly "continue" is also only for a loop.
+
+
+for loop terminated with a semicolon 
+-------------------------------------
+
+for(expression1 ; expression2 ; expression3 );
+{
+ --------
+ --------
+} 
+
+for(expression1 ; expression2 ; expression3 )
+                     ;
+{
+ --------
+ --------
+} 
+
+for(expression1 ; expression2 ; expression3 )
+{
+     //Empty Body
+}                    
+{
+ --------
+ --------
+} 
+
+In case we have a for which is terminated with a semicolon then - we need to consider it as a loop 
+without any single statement/body associated with it.
+For easy understanding we can think of it as a loop with empty body (This is technically incorrect. 
+But, it's just for ur understanding)
+
+The block of code which might be observed below such a for loop - is not the body of the for.
+Rather, it's just a arbitary block of code which will execute in sequence (i.e. once in the top-bottom
+execution)
+
+eg:-
+
+for (i = 1; i <= 10; ++i)
+{
+
+
+}             
+{
+	printf("%d\n", i);
+}
+
+
+Minimal form of "for loop" / Shortest way of writting a "for loop"
+-------------------------------------------------------------------
+
+It can be created where -
+1. expression-1 is missing
+2. expression-2 is missing
+3. expression-3 is missing
+4. even body is missing
+
+for(;;);   ---> shortest form of writting a for loop
+
+
+while loop terminated with a semicolon
+---------------------------------------
+
+expr-1
+while(expr-2);
+{
+  ---------
+  ---------
+  ---------
+}
+
+Like "for" we can also have a "while-loop" terminated with semicolon.
+In such a case again - consider it as a loop without any body to it.
+i.e. body of such a loop is missing
+For your easyness you can consider it as a loop with empty body to it (Technically Incorrect)
+If you observe any block of code below such a while - then, just consider it as a arbitary block of code
+It's not the body of while.
+
+The below for is perfectly valid - 
+
+for (i = 1, fact=1 ; i <= no; ++i)
+{
+	fact *= i;
+}
+
+i = 1, fact=1 is representing the expression-1.
+Here the ,(comma) is acting as the operator.
+Because of this multiple initializations are allowed in the place of expr-1 in case of "for loop"
+
+
+Few Assignments 
+
+1. Perfect Number 
+2. Factorial of a Number
+3. Sum of digits of a user entered number 
+4. Sum of cubes of individual digits of a number is it equal to the number itself 
+
+Check whether a user entered number is armstrong or not 
+
+Wrong Statement :- Sum of cubes of individual digits if it gets equal to the number itself. 
+Then the number is an armstrong number. 
+
+Right :- It depends upon the total number of digits.
+         We need to take power of the total number of digits
+
+5. Fibonacii Series 
+6. Prime Number 
+7. Table of integers in the range 2 to 7 ( Till 10 terms )
+8. Factorial of integers in the range 2 to 7 
+
+9. *********   (Column size is 9 nd rows size is 3 )
+   *********
+   *********
+
+10. 123456789   (Column size is 9 nd rows size is 3 )
+    123456789
+    123456789
+
+11. 111111111   (Column size is 9 nd rows size is 3 )
+    222222222
+    333333333
+
+
+12.
+
+*
+**
+***
+****
+*****
+******
+
+13.
+
+1
+12
+123
+1234
+12345
+123456
+
+
+14. 
+
+******
+*****
+****
+***
+**
+*
+
+15. 
+
+123456
+12345
+1234
+123
+12
+1
+
+16. Printing "first 25 prime numbers"
+(I am not asking you to display prime numbers in the range 1 to 25) 
+
+eg:- 2, 3, 5, 7, 11, 13, 17, ......................( First 25 prime numbers )
+
+//No. of iterations are not well known in advance i.e. it's undefined so, preferably use a while-loop.
+
+
+Taking a very important turn over the study of the language 'C'
+----------------------------------------------------------------
+
+Function
+---------
+
+
+int main( void )
+{
+   -------------
+   -------------
+   -------------
+   -------------
+
+   return 0;
+}
+
+Before technical understanding of functions :- 
+
+A function is nothing, but a readymade tool which is dedicated towards performing of some specific task.
+
+eg :-
+
+printf ---> displaying some text onto the console/output screen
+scanf  ---> read some quantity from the console/output screen 
+            and
+            store it in the required variable/L-Value
+exit  ----> to terminate the complete execution of the program/application
+
+As a beginer just understand
+1. The name of the function.
+2. The task it's dedicated for.
+3. The way to use i.e. the general syntax of using it i.e the way to call it.
+4. The time to use it in the program.
+
+
+"printf", "scanf", "exit"..... are the examples of built-in-functions. (It's readily available 
+for the use. Don't worry about the internals of it. Simply use it as and when required)
+The defination of it i.e. the body of these b.i.f resides inside the ".LIB" folder.
+Header file never contains the defination of the function. It contains the declaration of it.
+
+eg:- declaration of "printf" and "scanf" we can observe in the header file "stdio.h"
+     declaration of "exit" we can observe in the header file "stlib.h"
+
+
+Let's talk something about "main"
+
+int main( void )
+{
+   -------------
+   -------------
+   -------------
+   -------------
+
+   return 0;
+}
+
+"main" is purely a user defined function
+It's we the programmers/developers/learners/etc... who are providing the defination for it.
+Above main serves as an example for - "defination of the function with name main being provided"
+
+Technically speaking a function is just a block of code ({ -------- }) in which we have the relevant
+set of statements whoe's execution is required for completion of some specific task.
+
+eg:- 
+
+return_type  name_of_the_function ( argument list if any seperated by a comma ) 
+{
+  ------------
+  ------------
+  ------------
+}
+
+void calculateSquareAndDisplay( int no )
+{
+  -----------
+  -----------
+  -----------
+}
+
+There are two types of functions - 
+
+a. Built-in functions
+
+b. User-defined functions
+
+In this due course of time we will define functions of our own like built-in functions.
+Such functions would be termed as - user defined functions.
+
+
+Modularity
+-----------
+
+Modularity represents - breaking of a task (parent task) into different sub tasks.
+These sub-tasks are given to the respective specialized person/firm/organization/unit.
+The specialized person works on it and get it completed.
+Finally at the last we integrate all the sub-tasks
+
+Even the alternative terminalogy used is :- 
+Parent Task :- Module
+Sub Taks :- Sub Modules
+
+This is what we term it as modularity.
+
+eg:- 1. Preparing meal on occassion of some festival
+
+     2. Preparing for final semester
+
+     3. Process of bike creation accross the industry
+
+
+Benifits of modularity
+-----------------------
+
+1. Best utilization of skils due to which the final end product is with optimum efficiency standard.
+
+2. Replacement/Debugging/Testing/Modifying/Altering/Changing/Rectifying a smaller component is always 
+   easier in terms of a larger one w.r.t space-time-and-money.  
+
+3. Reusability (The sub-module that we have after the distribution of parent module can be reused
+   in a different domain if required)
+
+
+What to study now ?
+How to define functions of our own (UDF) just similar to the built-in ones?
+
+
+W.R.T the concept of functions (BIF as well as UDF)
+we have the three key elements involved in the discussion of it.
+
+a). Function Declaration 
+-------------------------
+
+Rule :- In C/C++ each and every function should be declared before it's first use ( before calling
+it for the very first time). 
+The declaration can appear any number of times (You will have no CTE for it) but, we will sensibly
+do it only once. Simply you are allowed to declare the function for as many times as you want.
+
+Note :- This function declaration is just for the compiler i.e. we are providing some info. 
+        to the compiler (Later)
+
+
+The general syntax of declaring the function in C is as below - 
+
+return_Type  name_of_the_function( Argument List which should be seperated by a comma 
+                                   In this argument list just specifying the Data Type is enough
+                                   i.e. No need to specify a variable over there
+                                   Even if a variable is specified then as well it's fine
+                                   Here the importance is just to the Data Type of arguments 
+                                   and it's sequence
+                                   If no argument list is required then specify "void" ) ;
+
+
+return_Type :- Here you can have any valid type 
+               Built in Type :- int, float, double, char                                 
+               User Defined Type :- types created using struct, union, typedef, enum
+               Derived Type :- Array/String/Pointer
+               void :- If the function is returning nothing then specify the RT as "void"
+
+
+name_of_the_function :- needs to be sensible and a vaild identifier 
+
+void display( void ) ;
+"display" is a function which requires no any argument and which returns nothing.
+
+void add( void );
+"add" is a function which requires no any argument and which returns nothing.
+
+void add(int a, int b);
+void add(int , int );
+
+int a, int b :- This is the argument list. Observe it is seperated by a comma
+
+Read the Function declaration as - "add" is a function which requires two arguments. First is of type 
+"int", second is of type "int". The function add returns nothing
+
+int add(int a, int b);
+int add(int , int );
+"add" is a function which requires two arguments. First is of type 
+"int", second is of type "int". The function add returns "int"
+
+float calculateArea(int radius);
+float calculateArea(int);
+"calculateArea" is a function which requires one argument of type "int" and which returns "float"
+
+float calculateSI(int , int, float) ;
+float calculateSI(int amount, int year, float rate) ;
+
+"calculateSI" is a function which requires 3 arguments
+First is of type int
+Second is of type int
+Third is of type float
+The function returns float
+
+
+Q/A). I know how to declare a function
+      But, practically in my code where should I declare it ?
+
+
+Ans :- Just get it declared before it's first use i.e. before the very first call to it is made.
+       Do it any where u wish.
+       The standard follows declaring the function above "main" and below the "header files"
+
+
+#include<stdio.h>
+
+*****************
+
+int main(void)
+{
+        -----------
+        -----------
+        -----------
+
+	return 0;
+}
+
+Extra Few Info
+--------------
+
+w.r.t. "defination of a function" :- A function in C has to be defined exactly once (i.e in unique way).
+In 'C' you canot have multiple functions being defined with the same name.
+The function can be defined in the same OR 
+you can define the function in some seperate file as well (This is recomended. It represents muti-file 
+programming)
+
+It's not mandatory to define the function.
+You can declare it and let the defination be missing (Later)
+You can declare it, you can call it and let the defination be missing (Later)
+
+
+b). Function Defination
+------------------------
+
+In C each and every function should be declared before it's first use and ideally it has to be defined 
+as well. 
+Declaration can apear any no. of times.
+But, unlike this - defination of the function should be unique (i.e one and only one).
+In C you can't have the redefination of any function.
+
+It's not mandatory to define the function.
+You can declare it and let the defination be missing (Later)
+You can declare it, you can call it and let the defination be missing (Later)
+
+
+The general syntax of defining a function :- 
+
+return_type name_of_the_function( argument list. so called "formal argument list"
+                                  which is again seperated by a comma.
+                                  Over here the data type and the name of the formal parameter is 
+                                  required. 
+                                  So, the format should be - 
+                                  DT var1, DT var2, DT var3, .....DT varn
+                                  These var's are termed as - formal argument/formal parameter
+                                  Formal arguments we use - to collect the value which is comming
+                                  along with the control as an attachment (as a result of function call)
+                                  When no argument list is required then specify "void" ) 
+{
+    ----------------
+    ----------------
+    statement /t's i.e. the code that you will have 
+    ----------------
+     ----------------
+}
+
+
+The block i.e. {} is mandatory in case of function.
+Like if/else/for/while -  In case of function we don't have a provision of skipping it in case there 
+is a single statement associated with the body.
+
+Technically speaking a function is just a block of code ({ -------- }) in which we have the relevant
+set of statements whoe's execution is required for completion of some specific task.
+
+Examples of function definations 
+
+int main(void)
+{
+ -------
+ -------
+ -------
+}
+
+void display(void)   //this represents the defination for the u.d.f "display"
+{
+ --------
+ --------
+ --------
+}
+
+void add(void)  //"add" is a u.d.f which is properly defined
+{
+ --------
+ --------
+ --------
+}
+
+
+void add(int a, int b)
+{
+ ---------
+ ---------
+ ---------
+}
+
+"int a, int b" --> This represents "formal argument list"
+               --> "a" and "b" these are the names of the formal arguments
+               --> These are required/used to collect the data/value which is comming along 
+                   with the due as a result of function
+
+void add(int , int )  //This is a Compile Time Error
+{
+ ---------
+ ---------
+ ---------
+}
+
+float calculateSI(int p, int n, float r)
+{
+ ---------
+ ---------
+ ---------
+}
+
+void displayAreaOfCircle(int radius)
+{
+ ---------
+ ---------
+ ---------
+}
+
+char convertToOppositeCase(char ch)
+{
+ -------
+ -------
+ -------
+}
+
+
+
+#include<stdio.h>
+
+int main( void )
+{
+  ------------
+  ------------
+  ------------
+  return 0;
+}
+
+
+Q/A) I have understood the g.s for "function defination"
+     My question is - using this g.s where am I suppose to get the function defined?
+
+
+1. A function has to be defined in the global scope.
+   Understand what is the meaning of global scope - It means something which is not local 
+   - It means something which is "not inside any block"
+   In C you can't define a function inside any block. It has to appear in global scope
+
+
+2. Traditional practice across schools/colleges/universites is - 
+   The function is declared above "main"
+   And it's defined below "main" [Not Recomended. Not a standard approach]
+
+3. The standard tells you to have the function defination in some seperate source file. 
+   Off course it has to be in global scope.
+
+
+Note :- In case of function as well - 
+        Function Defination by default includes the function declaration as well 
+        i.e. What ever we come to know just because of function declaration is also known 
+        by lookin at it's defination.
+
+        Vice-versa is not true. 
+        A pure form of function-declaration do not hold the function-defination.
+
+
+	void calculateSimpleInterest(int p, int n, float r) ; 
+	void calculateSimpleInterest(int , int , float ) ; 
+
+	The above represents the pure form of function declaration
+	
+
+	void calculateSimpleInterest(int p, int n, float r) 
+        {
+         -----------
+         -----------
+         -----------
+         -----------
+        }
+       	The above represents the pure form of function defination
+        Observation :- F.Declaration is aslo present inside the F.Defination
+	
+	Function Declaration provides you with the following info - 
+        1. Return Type
+	2. Name of the function
+	3. No. of parameters
+	4. Types of parameters
+	5. Sequence in which the parameters are to be passed
+
+ 	Function Defination also provides us with all this information
+	That is why - F.Declaration is also present inside the F.Defination
+
+        
+4. Consider you have the main function being defined.
+   Inside the main you have used some u.d.f i.e. u have called it.
+   Consider that the defination of the u.d.f is provided above main i.e. before it's use.
+   Then, in such a case you do not require any sepearte declaration of the function
+   because defination itself includes the declaration.
+   Even if you wish you can provide the declaration as well seperately. Here u'll have no any CTE
+
+
+c). Function Call (Call to the function / Calling the function / Using the function)
+-------------------------------------------------------------------------------------
+
+Function Call represents "calling a particular function" i.e. Making use of that function.
+
+Because of the function call the control is transfered from the call into the body of the "called 
+function". This called function's body is executed sequentially and completely. 
+And then lastly the control returns back to the place from where it had gone i.e. it comes back to
+the function call.
+
+The general syntax of calling a function in C is as below - 
+
+function_name(specify the data/value which you want to pass/provide to the called function for
+              some processing.
+              data/value is nothing but it should be any valid expression
+              As such you are not going to specify any Data Type over here
+              In case no value is required to be passed then just keep the bracket empty
+              Don't write void) ;
+
+
+Examples of function call
+
+printf("Hello") ;  //"Hello" is the argument which we are providing to the function defination
+
+scanf("%d%d", &a, &b); //"%d%d" , &a and &b are the argument which we are 
+                       //providing to the function defination
+
+exit(1);
+
+
+display(); //You are calling the function display and you are passing nothing to it
+
+
+add(a, b); //You are calling the function "add" and to it you are passing the values of a and b
+
+add(10, 20); 
+
+add(5+5, 200/10); 
+
+calculateArea(radius);
+
+displaySimpleInterest(100000, 5, 8.5f);
+
+square(no);
+
+checkPrime(11);
+
+
+Q/A) Now I understood the way to call a function.
+But, in my code from where am I allowed to call some function ?
+
+In C any function can call any other function.
+That means "a function call" should apear inside the body of some function in C.\
+It should be a part of some function.
+
+Even the function "main" is allowed to call itself i.e. "main" can call "main" itself. 
+In "C" the function call can't be globally placed.
+
+
+Signature and Prototype 
+------------------------
+
+Both the terminologies are associated with the concept of function/method/property
+/behaviour/ member-function (When a function is defined inside a class and it is belonging to an object)
+
+
+return_type name_of_the_function(argument_list_if_required)
+{
+  ----------
+  ----------
+}
+
+
+Signature of a function comprises of -  "name_of_the_function(argument_list_if_required)"
+
+1. name of the function
+2. number of arguments 
+3. types of the arguments 
+4. sequence in which those are passed
+
+Note :- Return-Type is not considered in signature
+
+
+Prototype of a function comprises of -  "return_type name_of_the_function(argument_list_if_required)"
+					"return_type SIGNATURE-OF-THE-FUNCTION"
+1. name of the function
+2. number of arguments 
+3. types of the arguments 
+4. sequence in which those are passed
+
+Note :- Return-Type is considered in prototype
+
+
+
+Pass by value / Call by value
+------------------------------
+
+
+Perform addition of two integers and displaying the result 
+
+1. Accept the integers
+2. Perform the addition
+3. Display the result 
+
+
+Case - 1 
+--------
+1. Accept the integers
+2. Perform the addition
+3. Display the result 
+Do all the three tasks (1, 2, 3) in "main" (Don't have any UDF in this case)
+
+
+int main(void)
+{
+	int a, b;
+	int sum;
+      
+        ---------
+        ---------
+}
+
+Local Variable/e's :- 
+
+A variable which is defined "inside some function" i.e. "inside block of some function" i.e.
+"inside body of some function" is termed as a - "LOCAL VARIABLE" 
+We say that such a "variable is local to the block" (It's available only within that block)
+in which it is defined.
+w.r.t above example - "a", "b" and "sum" are local variables belonging to main
+
+
+Case - 2
+--------
+1. Accept the integers
+2. Perform the addition
+3. Display the result 
+Do all the three tasks (1, 2, 3) in a user defined function "add".
+
+
+Caller Function Vs Called Function
+
+These terminologies are basically related with a "functional call".
+Called Function is that function to which you are giving the call i.e. the one which you are calling.
+Caller Function is that function from which the required function is being called.
+
+void add(void);
+
+int main( void )
+{
+  -------
+  -------
+  -------
+  add();
+  -------
+  -------
+}
+
+void add(void)
+{
+  ------
+  ------
+  ------
+}
+
+W.R.T "add();"
+Caller Function :- main
+Called Function :- add
+
+
+ 
+
+Need of "pass-by-value"
+------------------------
+
+Whenever a function is called - at that time the control is transfered from the caller function 
+into the body of the called function.
+After entering into the called function the "data/value/variables" defined inside the caller function
+goes in-accessible. 
+
+i.e. variable 'a' and 'b' which is defined inside "main" is not accessible inside the function "add".
+This is where the need of "pass by value" arises.
+
+Q/A) What excatly do you want inside the function add ?
+     Do you want variable "a" and variable "b" 
+     OR
+     Do you want the value of "a" and value of "b"?
+
+Ans :- We just require the values for the further processing 
+
+Here you have a solution and i.e. "pass by value"
+
+We have a provision by which we can "attach the required data" to the control while it's being 
+transfered into the body of the called function (Because of a function call)
+  
+eg:- add(a, b);
+Along with the control we will have the values of a and b attached.
+
+Accordingly in the function defination we should the "formal argument list" to collect the values
+which is comming along with the control.
+Even accordingly proper declaration of the function should be specified.
+
+
+eg:- 
+
+void add(int , int ); 
+
+int main(void)
+{
+	int a, b;
+
+	printf("\nEnter two integer values : ");
+	scanf("%d%d", &a, &b);
+
+	add(a, b);
+	
+
+	return 0;
+}
+
+void add(int x, int y)   
+{
+	int sum; 
+
+	sum = x + y;
+
+	printf("\n\nAddition of %d and %d is %d ", x, y, sum);
+}
+
+
+Sumarization
+-------------
+
+1. Declaration can be done multiple no. of times (senseless)
+
+2. In function declaration providing the names of variables is not required (it's optional)
+
+3. 'a' and 'b' are the local variables belonging to main
+
+4. w.r.t "add(a, b);" 
+   'a' and 'b' is also refered as the "actual parameters" / "actual argument"
+   'a' and 'b' simply represents an expression
+    In General Term a function call is - 
+    functionName(expr, expr, expr, ......., expn);
+
+5. "int x, int y" represents the argument list
+    'x' and 'y' is refered as "formal parameters" / "formal argument"
+
+6. "sum" is also a local variable belonging to the function "add"
+
+
+Rule :-
+--------
+
+Every single time a function is called at that time the "formal parameters/formal arguments" and 
+the local variables are newly created (for every call a fresh new brand copy of it will be created).
+And whenever a function terminates at that time these created local variables and 
+formal parameters/formal arguments are destroyed.
+The order of destruction is reverse of the order of the creation [This is because the creation is 
+basically done on STACK which works on the LIFO principle]
+
+Note :- Local Variables and Formal Parameters are always created on "STACK".
+        RAM ---> Data Segment ---> STACK (It holds a movable boundary)
+        Truly speaking in the memory layout stack is positioned upside down
+        Activation Record is actually pushed and then later on poped from the stack.
+        
+
+
+Q/A). Can we have the name of "actual argument" and the "formal argument" same ?
+                               "actual parameter"       "formal parameter"
+
+Yes!!! You can.
+Both have a complete different identity.
+
+#include<stdio.h>
+
+void foo(int);
+
+int main(void)
+{
+	int a = 10;
+
+	printf("\nIn main. Value of a is : %d ", a);
+	foo(a);
+	printf("\nIn main. Value of a is : %d ", a);
+
+	printf("\nMy name is Mr. Yash Paranjape ");
+
+	return 0;
+}
+
+void foo(int a)
+{
+	printf("\nIn foo. Value of a is : %d ", a);
+	a = a + 10;
+	printf("\nIn foo. Value of a is : %d ", a);
+}
+
+
+Note :- In case when we have "pass-by-value".
+There if any changes/modifications/alterations are made into values of the 
+formal parameter / local variable then these changes are just local i.e. limited to that particular 
+called function only. It has no any effect on the actual argument/paramter value.
+
+
+Few examples of pass-by-value (Practical Implementation)
+---------------------------------------------------------
+
+
+The order in which arguments are passed to the function /
+The order of argument/parameter passing
+-------------------------------------------------------
+
+The general syntax of function call is as below - 
+
+functionName(argument List which is seperated by a comma [if-required]/
+             The General Syntax of the argument list is as below - 
+             exp-1 , exp-2, expr-3, ........, exp-n ) ; 
+
+Arguments are always passed to the function from RHS to LHS 
+i.e. first expression-n will be passed
+     .
+     .
+     Then expr-3 will be passed
+     Then expr-2 will be passed
+     Then expr-1 will be passed             
+
+
+Note / Conclusion (Specially w.r.t Visual Studio 2017 IDE)
+----------------------------------------------------------
+
+The order of "actual argument passing" and the order of "formal argument creation" 
+is no way related on this IDE.
+
+One thing is guarented 100% true and that is - The order of "actual argument passing" is 
+always RHS to LHS 
+
+
+
+int i=1;
+printf("%d   %d   %d   %d", i++, ++i, ++i, i++); //Here we are passing 5 actual-arguments to the
+                                                 //function printf. The arguments are passed 
+                                                 //from RHS to LHS
+
+To solve such stuff technically we should understand the "way in which arguments are passed to the
+function".
+Also a bit knowledge w.r.t working of "++" operator is need.
+
+
+int i=5;
+int Result;
+
+Result = ++i  * ++i;
+
+       = 6    *  7 ;
+
+       = 42 ; 
+
+Above analysis is wrong.
+-------------------------
+
+Because incase of "pre-increment" the value of operand is incremented by 1 immediately.
+But at the place of expression it's value is not substituted.
+Rather, the variable itself i.e. the L-Value itself i.e. the alignment itself is substituted.
+
+int i=5;
+int Result;
+
+Result = ++i  * ++i;
+
+       = i  * i ;
+       
+       = 49 ;
+
+Above analysis is right.
+-------------------------
+
+
+Semantic of argument passing 
+----------------------------
+
+Q/A). Semantic of argument passing matches with what ?
+      a) Initialization OR b) Assignment 
+
+Q/A). Formal argument holds the value of the actual argument which is passed along with the function 
+      call. These formal arguments are created with the syntax of what ? Initialization Or Assignment 
+
+
+void display(int x, int y);
+
+int main(void)
+{
+	int a = 10, b = 20;
+
+	display(a, b);
+
+	return 0;
+}
+
+void display(int x, int y)
+{
+	//'a' and 'b' these variables which are defined in "main"
+	//Value of these variables I want to display in this function
+
+	//Question is :- 'x' and 'y' i.e the formal argument's will be created following the 
+	//g.s of "initialization" or "assignment" ?
+}
+
+
+Ans :- The semantic of argument passing matches with "initialization".
+       The formal argument /t's are initialized by the value of actual argument.
+eg:-   'x' is initialized by the value 10
+       'y' is initialized by the value 20
+
+
+
+Note :- In C++, in study of copy constructor - 
+The argument has to passed by using a referance i.e. using pass by reference 
+It's actually referance to constant.
+
+Q/A). In case of Copy Constructor why should I have the argument as a referance ?     
+
+
+
+Something about function call
+------------------------------
+
+The general syntax of calling the function is - 
+
+function_name(  actual argument list if required and it should be seperated by a comma
+                The general syntax of putting down the actual argument list is - 
+                expr-1, expr-2, expr-3, ........., expr-n
+                These expression's value is passed along with the control to the called function.
+                For this these expressions are also executed.
+                If no argument list is required then keep the round brackets blank 
+                dont write "void"  )   ;
+
+//Tell me the O/P
+
+#include<stdio.h>
+
+void foo(int );
+
+int main(void)
+{
+	int a = 10, b = 20, c = 30;
+
+	foo(a+b) ;  //30
+
+	foo(a==b) ; //0
+
+	foo(a>b) ;  //0
+
+	foo(a&&b) ; //1
+
+	foo(a!=b) ; //1
+
+	return 0;
+}
+void foo(int var)
+{
+	printf("\nInside foo. Value of var is %d ",var);
+}
+
+The question is :-
+
+foo(a,b) ;  //Here whether to consider comma(,) as the operator or as a seperator
+
+View -1
+-------
+We can consider comma (,) as an operator. So w.r.t this "a,b" will represent a valid expression. 
+As per the working of comma operator the value of above expression will be 20. because value of 
+the expression has to be equal to the value of 'b'
+
+So here we can conclude that - the value 20 will be passed as an attachment with the control.
+
+
+The expression is ecaluated from LHS to RHS
+Right operand is evaluated with all the side effects of left operand 
+The value of right most expression is supposed to the value of whole expression 
+
+View -2
+-------
+We can say that - comma is acting as a seperator.
+i.e. in "a,b" comma(,) is acting as a seperator.
+So accordingly over here we need to consider "a" and "b" as two seperate expression's.
+But, in declaration we have specified that - void foo(int);
+
+So, there is no sync. between function-declaration and function-call.
+So, definately 100% a compile time error is expected i.e. "Too Many Arguments"
+
+Q/A). In this above case whether comma (,) will be considered as the operator or as the seperator ?
+-----------------------------------------------------------------------------------------------------
+As per the standrad prefesional compiler for 'c' this has to give tou a CTE "too many arguments".
+The conclusion is - comma do-not act as a operator but it acts like seperator.
+Due to which there is a mis-match between the declaration and the call. 
+
+Now let's observe the way it behaves with the IDE Visual Studio 2017
+
+int a=10, b=20;
+foo(a , b);
+
+1. On visual studio 2017 the code compiles fine and ecen builds fine.
+with a warning "Too many Arguments"
+Actually this should be a cimpole time error "Too many Arguments"
+
+2. So we may consider that on visual studio 2017 comma (,) is acting as the operator
+Yes!!!! This  is true but,
+the flow of the expression which should be from LHS to RHS 
+is not happening rather the expression is executed considering the flow from RHS to LHS
+
+
+MIGHT BE this is because the arguments are passed to the function from RHS to LHS
+i.e. From computer's end the expression is being read from RHS to LHS
+
+
+3. 
+int a=10, b=20, c=30;
+foo((c=a+b , b=55 , a=5 ));
+
+When a pair of extra () are used then the flow of execution over the expression comes out from 
+LHS to RHS
+
+*************************
+
+/*
+void foo( int );
+
+int main(void)
+{
+	foo( (a  ,  b) );
+}
+
+void foo(int var)
+{
+}
+*/
+
+
+Variable Argument Function   (Just a intro to it)
+--------------------------------------------------
+
+Can you figure out the declaration of a function just by looking at it's call (call to that function) ?
+
+1.
+
+foo( 10 );
+
+Just looking at the above function call it's not possible to know it's return-type.
+What we can know is - 
+
+??????  foo( int ) ; /// foo is a function which requires one argument of type int. foo returns ????
+(is unknown)
+
+
+2.
+
+int sum;
+int a=10, b=20;
+sum = add(a , b);
+
+int add(int , int ); //add is a function which requires 2 arguments. First is of type "int" and second
+                     //is also of type "int". The function "add" returns int
+
+3. 
+
+float SI = calculateSI(5000, 4, 12.5 ) ;
+
+float calculateSI(int, int, double); 
+
+calculateSI is a function which requires 3 arguments 
+first is of type "int"
+second is of type "int"
+third is of type "double"
+The function calculateSI returns "float"
+
+4. 
+
+int radius = 5;
+
+calculateArea(radius);
+
+We are unknown about the return-type of this function.
+
+????  calculateArea(int radius) ;
+
+"calculateArea" is a function which requires one argument of type "int". And we don't have any idea 
+about it's return type.
+
+Can you help me in understanding the declaration of the function "printf"
+--------------------------------------------------------------------------
+
+In a rough way
+
+int printf( STRING ,  Any no of arguments of any data type you are allowed to pass ) ; 
+
+Conclusion :- "printf" serves as an example of "variable-argument-function" (Such a function
+is capable of having any no. of arguments of any data-type)
+
+In case of "printf"
+
+1. It's return type is "int"
+2. The very first argument of "printf" is mandatory and it should be of type 
+   "const char *" (pointer to constant character / STRING)
+3. After that "printf" can have any no. of arguments of any data type.  (Variable argument function)
+
+
+extern int printf( const char *fmt , ... );
+
+extern :- It's the storage type.
+          For functions the storage type is "extern"
+          It can be specified explicietly in the function declaration (and if you wish then 
+          in function defination as well )
+          It is the default storage type for the concept of "function"
+
+int :- it represents the return type of "printf"
+
+printf :- it's the name of the function.
+       Note :- In C we are not allowed to define a variable whoe's name would be "printf"
+
+const char *fmt :- read it as "pointer to constant character"
+                It's the first and mandatory argument for printf. 
+                It's a String
+
+...  :- These are termed as "elipsis".
+        This represents that after the first argument printf can have any no. of arguments 
+        of any data type. (variable argument function)
+
+
+STRING :- 
+In C string literal is something which is enclosed inside the double quotes ("***").
+Every string in 'c' by default is terminated with '\0'.
+ASCII value of '\0' is integer zero itself.
+
+
+case - 4
+--------
+
+Accepting of two integers ---> Do it in "main"
+Performing the addition ----> Do it in a U.D.F "add"
+Displaying of the sum  -----> Should be done back in main  (?)
+
+
+We have observed that - 
+
+a). While calling a function it's allowed to attach the data along with the control
+that we require for processing inside the called function.(pass-by-value)
+
+Similar to this - 
+
+while returning back from the "body of some function" to it's caller, am I allowed to attach some data?
+Can I bring some data back from a function's body after it's execution
+
+Ans : Yes, it's possible [But there are few limitations]
+      Study the "return" statement in 'C'
+
+
+#include<stdio.h>
+
+void add(int, int);
+
+int main(void)
+{
+	int a, b;
+	
+	printf("\nEnter two integers : ");
+	scanf("%d%d", &a, &b);
+
+	add(a, b); //We do require to pass values of 'a' and 'b' along with the control
+
+	return 0;
+}
+
+void add(int x, int y)
+{
+	int sum;
+	sum = x + y;
+	
+}
+
+Q/A). The value of sum, Can I make it available back to the caller function i.e "main".
+Ans :- Yes!!! it's possible with the help of "return" statement.
+
+
+"return" statement in 'C'
+--------------------------
+
+"return" is simply a statement in 'C'. 
+It is used for explicitely returning the control back to it's caller. [It goes at the place of function
+call]
+Here, along with the control we have a provision of passing/attaching some data/value.
+
+
+
+The two ways in which return statement can be used are - 
+
+a).  return ;
+
+As a execution of this return statement the control will explicitely be send back to it's caller
+[at the place of the function call].
+In this case we do not have any data attached to the control.
+Such a return statement can be used when the return-type of the function is specified as "void"
+and further ahead if we want to explicitely return the control back to it's caller.
+
+
+b).  return expression ;
+
+Here as well the control will be explicitely returned back to it's caller but this time now -
+the value of the expression will be attached along with the control. 
+Yes!!! off course in this case as well the expression would be completely executed and then 
+it's value will be attached along with the control.
+
+Note :- In this case the return-type of the function [specified in function declaration
+and function defination] will never be "void". Because here we are returning something.
+Whatever the expression's Data Type comes out after it's execution that type has to be specified 
+as the return type for the function. 
+
+The value returned is substitued at the place of function call.
+Ideally we catch/receive this value and use it further as per our need in the caller function.
+It's not mandatory to catch the return value. We are free to ignore it.
+
+In case of those functions whoes return type is not void 
+i.e. those functions which do return something. 
+Call to such functions can also treated as a valid expression (Bcz at the place of function call
+we will have some appropriate value getting substituted)
+
+Revision
+--------
+
+1. We are free to ignore the returned value. It's not compuslory to catch it always. 
+   Ideally we do catch the return value and use it. 
+
+2. Consider that the return-type (which is not void) is specified properly in the 
+function-declaration and in the function-defination.
+But, the return statement is missing inside the body of this u.d.f 
+
+Q/A). Will it work (Will it give a compile time error / Will it return some value )
+
+One thing is sure that - w'll not get any compile time error 
+But, still the output of this is un-defined
+You may tend to get garbage / -nan(ind) - observed on visual studio 2017 /well defined value
+
+
+#include<stdio.h>
+
+float calculateArea(int r);
+
+int main(void)
+{
+	int radius;
+	float a;
+	printf("\nenter the value of radius ");
+	scanf("%d", &radius);
+
+	
+	a = calculateArea(radius)  ;
+
+	printf("\nIn main. Area of Circle is : %f ", a);
+	
+	return 0;
+}
+
+float calculateArea(int r)
+{
+	//That we can calculate the area of circle over here inside this function
+
+	float area;
+	area = 3.14f * r * r;
+}      
+
+o/p :- -nan(ind)  [On visual studio 2017]    
+
+3. [Common Sense] when a "return statement" placed inside the body of some function executes
+there itself the control is returned back to it's caller. 
+i.e. The code if any is present below such a return statement then, such a code will never 
+ever execute
+Here we should have a warning :- "Unreachable code"
+
+#include<stdio.h>
+
+void calculateArea(int r);
+
+int main(void)
+{
+	int radius;
+	
+	printf("\nenter the value of radius ");
+	scanf("%d", &radius);
+
+	calculateArea(radius) ;
+
+	return 0;
+}
+
+void calculateArea(int r)
+{
+
+	float area;
+	area = 3.14f * r * r;
+
+	printf("\nArea of circle is : %f ", area);
+
+	return; 
+
+	printf("My name is Mr. Yash ");  //Warning :- Unrechable code 
+}          
+
+
+4. How to return multiple values from a function using the "return" statement ?
+Ans :- This is impossible.
+We have a limitation of the return statement - "return statement can return only a single 
+value at a time directly". 
+
+To overcome this we can go for - "pass by address"
+
